@@ -1,6 +1,6 @@
-# National Provider Identifier
+# `npi` vector
 
-A National Provider Identifier (NPI) is...
+This creates an integer vector of valid NPIs.
 
 ## Usage
 
@@ -18,11 +18,13 @@ is_npi(x)
 
 - x:
 
-  integer vector
+  - For `npi()`: An integer vector.
+
+  - For `is_npi()`: An object to test.
 
 ## Value
 
-An S3 vctr of class `npi`
+An S3 vector of class `npi`
 
 ## Examples
 
@@ -34,11 +36,7 @@ npi()
 is_npi(npi())
 #> [1] TRUE
 
-x <- generate_npi(10)
-npi(x)
-#> <npi[10]>
-#>  [1] 1645358447 1164415312 1856458594 1103750512 1081470292 1169253906
-#>  [7] 1552817006 1589156954 1620405001 1460366717
+x <- npi(generate_npi(10))
 data.frame(x)
 #>             x
 #> 1  1645358447
@@ -54,7 +52,7 @@ data.frame(x)
 tibble::tibble(x)
 #> # A tibble: 10 × 1
 #>             x
-#>         <int>
+#>         <npi>
 #>  1 1645358447
 #>  2 1164415312
 #>  3 1856458594
