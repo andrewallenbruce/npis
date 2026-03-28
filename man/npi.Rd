@@ -5,7 +5,7 @@
 \alias{npi}
 \alias{new_npi}
 \alias{is_npi}
-\title{National Provider Identifier}
+\title{\code{npi} vector}
 \usage{
 generate_npi(x)
 
@@ -16,21 +16,23 @@ new_npi(x = integer())
 is_npi(x)
 }
 \arguments{
-\item{x}{integer vector}
+\item{x}{\itemize{
+\item For \code{npi()}: An integer vector.
+\item For \code{is_npi()}: An object to test.
+}}
 }
 \value{
-An S3 vctr of class \code{npi}
+An S3 vector of class \code{npi}
 }
 \description{
-A National Provider Identifier (NPI) is...
+This creates an integer vector of valid NPIs.
 }
 \examples{
 new_npi()
 npi()
 is_npi(npi())
 
-x <- generate_npi(10)
-npi(x)
+x <- npi(generate_npi(10))
 data.frame(x)
 tibble::tibble(x)
 }

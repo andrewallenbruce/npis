@@ -1,18 +1,17 @@
-#' National Provider Identifier
+#' `npi` vector
 #'
-#' @description
-#' A National Provider Identifier (NPI) is...
+#' This creates an integer vector of valid NPIs.
 #'
-#' @param x integer vector
-#'
-#' @returns An S3 vctr of class `npi`
+#' @param x
+#'  * For `npi()`: An integer vector.
+#'  * For `is_npi()`: An object to test.
+#' @returns An S3 vector of class `npi`
 #' @examples
 #' new_npi()
 #' npi()
 #' is_npi(npi())
 #'
-#' x <- generate_npi(10)
-#' npi(x)
+#' x <- npi(generate_npi(10))
 #' data.frame(x)
 #' tibble::tibble(x)
 #' @export
@@ -44,17 +43,41 @@ format.npi <- function(x, ...) {
 }
 
 #' @export
-vec_ptype_abbr.npi <- function(x, ...) {
-  "npi"
-}
-
+vec_ptype_abbr.npi <- function(x, ...) "npi"
 #' @export
-vec_ptype_full.npi <- function(x, ...) {
-  "npi"
-}
+vec_ptype_full.npi <- function(x, ...) "npi"
 
 #' @export
 vec_ptype2.npi.npi <- function(x, y, ...) new_npi()
+#' @export
+vec_ptype2.integer.npi <- function(x, y, ...) integer()
+#' @export
+vec_ptype2.npi.integer <- function(x, y, ...) integer()
 
 #' @export
 vec_cast.npi.npi <- function(x, to, ...) x
+#' @export
+vec_cast.npi.integer <- function(x, to, ...) npi(x)
+#' @export
+vec_cast.integer.npi <- function(x, to, ...) vec_data(x)
+
+#' Convert to an `npi` vector
+#'
+#' This creates an integer vector of valid NPIs.
+#'
+#' @param x vector
+#' @param ... empty dots
+#' @returns An S3 vector of class `npi`
+#' @examples
+#' as_npi(c("1234567891", 1234567891, 1234567891L, NA_character_))
+#' @export
+as_npi <- function(x, ...) UseMethod("as_npi")
+
+#' @export
+as_npi.default <- function(x, ...) vec_cast(x, new_npi())
+
+#' @export
+as_npi.character <- function(x, ...) new_npi(as.integer(x))
+
+#' @export
+as_npi.double <- function(x, ...) new_npi(as.integer(x))
