@@ -1,47 +1,60 @@
-#' @noRd
-check_10_digits <- function(x, call = rlang::caller_env()) {
-  if (ceiling(log10(x)) != 10L) {
-    cli::cli_abort(c("x" = "{.arg x} must have 10 digits"), call = call)
+#' National Provider Identifier
+#'
+#' @description
+#' A National Provider Identifier (NPI) is...
+#'
+#' @param x integer vector
+#'
+#' @returns An S3 vctr of class `npi`
+#' @examples
+#' new_npi()
+#' npi()
+#' is_npi(npi())
+#'
+#' x <- generate_npi(10)
+#' npi(x)
+#' data.frame(x)
+#' tibble::tibble(x)
+#' @export
+npi <- function(x = integer()) {
+  x <- vec_cast(x, integer())
+  new_npi(x)
+}
+
+#' @rdname npi
+#' @export
+new_npi <- function(x = integer()) {
+  if (!is_integer(x)) {
+    abort("`x` must be an integer vector.")
   }
+  new_vctr(x, class = "npi")
 }
 
-
-#' @noRd
-luhn_impl <- function(x) {
-  check <- x %% 10L
-  x <- cheapr::cheapr_rev(as.integer(unlist(strsplit(
-    as.character(as.integer(x %/% 10L)),
-    ""
-  ))))
-  x[c(1L, 3L, 5L, 7L, 9L)] <- x[c(1L, 3L, 5L, 7L, 9L)] * 2L
-  x[cheapr::which_(x > 9L)] <- x[cheapr::which_(x > 9L)] - 9L
-  x <- z <- collapse::fsum(x) + 24
-  x <- ceiling(x / 10L) * 10L - z
-  x == check
+#' @rdname npi
+#' @export
+is_npi <- function(x) {
+  inherits(x, "npi")
 }
 
-
-#' @noRd
-luhn_check <- function(x) {
-  if (rlang::has_length(x, 1L)) {
-    return(luhn_impl(x))
-  }
-  purrr::map_lgl(x, luhn_impl)
+#' @export
+format.npi <- function(x, ...) {
+  out <- formatC(vec_data(x))
+  out[is.na(x)] <- NA_integer_
+  out
 }
 
-# assert_luhn <- function(x, call = rlang::caller_env()) {
-#   if (!any(luhn_check(x))) {
-#     idx <- cheapr::which_(luhn_check, invert = TRUE)
-#     cli::cli_abort(
-#       c(
-#         "x" = "{.val {length(idx)}} {.field npi{?s}} failed Luhn algorithm check:",
-#         cli::col_yellow(
-#           cli::format_bullets_raw(
-#             paste(cli::symbol$arrow_right, just_right(brackets(idx)), x[idx])
-#           )
-#         )
-#       ),
-#       call = call
-#     )
-#   }
-# }
+#' @export
+vec_ptype_abbr.npi <- function(x, ...) {
+  "npi"
+}
+
+#' @export
+vec_ptype_full.npi <- function(x, ...) {
+  "npi"
+}
+
+#' @export
+vec_ptype2.npi.npi <- function(x, y, ...) new_npi()
+
+#' @export
+vec_cast.npi.npi <- function(x, to, ...) x

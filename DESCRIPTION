@@ -16,9 +16,12 @@ Imports:
     cli (>= 3.6.5),
     collapse (>= 2.1.6),
     purrr (>= 1.2.1),
-    rlang (>= 1.1.7)
+    rlang (>= 1.1.7),
+    vctrs (>= 0.7.2)
 Suggests: 
-    testthat (>= 3.3.2)
+    testthat (>= 3.3.2),
+    tibble (>= 3.3.1)
+Config/Needs/website: tibble
 Config/testthat/edition: 3
 Config/testthat/parallel: true
 Encoding: UTF-8
