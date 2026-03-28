@@ -11,8 +11,7 @@
   : Generate random NPIs
 
 - [`npi()`](https://andrewallenbruce.github.io/npis/reference/npi.md)
-  [`new_npi()`](https://andrewallenbruce.github.io/npis/reference/npi.md)
   [`is_npi()`](https://andrewallenbruce.github.io/npis/reference/npi.md)
   :
 
-  `npi` vector
+  Create an `npi` vector

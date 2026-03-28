@@ -1,4 +1,4 @@
-# `npi` vector
+# Create an `npi` vector
 
 This creates an integer vector of valid NPIs.
 
@@ -6,8 +6,6 @@ This creates an integer vector of valid NPIs.
 
 ``` r
 npi(x = integer())
-
-new_npi(x = integer())
 
 is_npi(x)
 ```
@@ -27,14 +25,21 @@ An S3 vector of class `npi`
 ## Examples
 
 ``` r
-new_npi()
-#> <npi[0]>
-npi()
-#> <npi[0]>
-is_npi(npi())
+x <- generate(10)
+x
+#>  [1] 1506436951 1578228714 1127089493 1749938745 1306627303 1062098073
+#>  [7] 1191860649 1389764480 1524399543 1540412194
+is_npi(x)
+#> [1] FALSE
+
+x <- npi(x)
+x
+#> <npi[10]>
+#>  [1] 1506436951 1578228714 1127089493 1749938745 1306627303 1062098073
+#>  [7] 1191860649 1389764480 1524399543 1540412194
+is_npi(x)
 #> [1] TRUE
 
-x <- npi(generate(10))
 data.frame(x)
 #>             x
 #> 1  1506436951
@@ -47,6 +52,7 @@ data.frame(x)
 #> 8  1389764480
 #> 9  1524399543
 #> 10 1540412194
+
 tibble::tibble(x)
 #> # A tibble: 10 × 1
 #>             x

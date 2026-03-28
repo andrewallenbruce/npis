@@ -1,6 +1,6 @@
 # Generate random NPIs
 
-This creates an integer vector of valid NPIs.
+This creates an integer vector of unvalidated NPIs.
 
 ## Usage
 
