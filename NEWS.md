@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# npis 0.0.0.9004 (2026-03-28)
+
+* faster `generate()`
+
+
 # npis 0.0.0.9003 (2026-03-28)
 
 * vctrs internals
