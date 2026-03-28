@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# npis 0.0.0.9006 (2026-03-28)
+
+* npi validation
+
+
 # npis 0.0.0.9005 (2026-03-28)
 
 * added valid npi test data
