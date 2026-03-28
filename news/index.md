@@ -1,5 +1,10 @@
 # Changelog
 
+## npis 0.0.0.9004 (2026-03-28)
+
+- faster
+  [`generate()`](https://andrewallenbruce.github.io/npis/reference/generate.md)
+
 ## npis 0.0.0.9003 (2026-03-28)
 
 - vctrs internals

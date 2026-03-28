@@ -7,8 +7,10 @@
 
   Convert to an `npi` vector
 
-- [`generate_npi()`](https://andrewallenbruce.github.io/npis/reference/npi.md)
-  [`npi()`](https://andrewallenbruce.github.io/npis/reference/npi.md)
+- [`generate()`](https://andrewallenbruce.github.io/npis/reference/generate.md)
+  : Generate random NPIs
+
+- [`npi()`](https://andrewallenbruce.github.io/npis/reference/npi.md)
   [`new_npi()`](https://andrewallenbruce.github.io/npis/reference/npi.md)
   [`is_npi()`](https://andrewallenbruce.github.io/npis/reference/npi.md)
   :

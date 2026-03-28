@@ -16,7 +16,7 @@ as_npi(x, ...)
 
 - ...:
 
-  empty dots
+  These dots must be empty
 
 ## Value
 
