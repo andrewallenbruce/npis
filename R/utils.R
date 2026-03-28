@@ -1,6 +1,6 @@
 #' Generate random NPIs
 #'
-#' This creates an integer vector of valid NPIs.
+#' This creates an integer vector of unvalidated NPIs.
 #'
 #' @param x integer, number of NPIs to generate
 #' @returns An integer vector of unvalidated NPIs
@@ -20,4 +20,9 @@ generate <- function(x) {
       n = x
     )
   )
+}
+
+#' @noRd
+unlist_ <- function(x) {
+  unlist(x, use.names = FALSE)
 }

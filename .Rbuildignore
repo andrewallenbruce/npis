@@ -11,3 +11,4 @@
 ^\.github$
 ^[.]?air[.]toml$
 ^\.vscode$
+^data-raw$

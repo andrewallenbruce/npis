@@ -15,7 +15,6 @@ Imports:
     cheapr (>= 1.5.0),
     cli (>= 3.6.5),
     collapse (>= 2.1.6),
-    purrr (>= 1.2.1),
     rlang (>= 1.1.7),
     vctrs (>= 0.7.2)
 Suggests: 

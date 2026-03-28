@@ -2,13 +2,10 @@
 % Please edit documentation in R/npi.R
 \name{npi}
 \alias{npi}
-\alias{new_npi}
 \alias{is_npi}
-\title{\code{npi} vector}
+\title{Create an \code{npi} vector}
 \usage{
 npi(x = integer())
-
-new_npi(x = integer())
 
 is_npi(x)
 }
@@ -25,11 +22,16 @@ An S3 vector of class \code{npi}
 This creates an integer vector of valid NPIs.
 }
 \examples{
-new_npi()
-npi()
-is_npi(npi())
+x <- generate(10)
+x
+is_npi(x)
 
-x <- npi(generate(10))
+x <- npi(x)
+x
+is_npi(x)
+
 data.frame(x)
+
 tibble::tibble(x)
+
 }
