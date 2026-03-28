@@ -3,42 +3,35 @@ n_digits <- function(x) {
   ceiling(log10(x))
 }
 
-
 #' @noRd
 is_10_digits <- function(x) {
   n_digits(x) == 10
 }
-
 
 #' @noRd
 all_are_10_digits <- function(x) {
   all(is_10_digits(x))
 }
 
-
 #' @noRd
 last_digit <- function(x) {
   x %% 10L
 }
-
 
 #' @noRd
 rm_last_digit <- function(x) {
   x %/% 10L
 }
 
-
 #' @noRd
 seq_n_digits <- function(x) {
   seq_len(ceiling(log10(x)))
 }
 
-
 #' @noRd
 sum_digits <- function(x) {
   sum(floor(x / 10L^(seq_n_digits(x) - 1L)) %% 10L)
 }
-
 
 #' @noRd
 explode_number <- function(x) {
@@ -69,7 +62,6 @@ luhn_impl <- function(x) {
   x <- ceiling(x / 10L) * 10L - z
   x == check
 }
-
 
 #' @noRd
 luhn_check <- function(x) {
