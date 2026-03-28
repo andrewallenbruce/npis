@@ -53,37 +53,3 @@ check_ten_digits <- function(x) {
     cli::cli_abort("All input to {.arg x} must have 10 digits")
   }
 }
-
-#' @noRd
-check_luhn <- function(x) {
-  gtn <- function(x) cheapr::which_(x > 9L)
-
-  index <- c(TRUE, FALSE)
-
-  chk <- tenth(x)
-
-  x <- cheapr::cheapr_rev(
-    as.integer(
-      unlist_(
-        strsplit(
-          as.character(
-            one_nine(x)
-          ),
-          ""
-        )
-      )
-    )
-  )
-
-  x[index] <- x[index] * 2L
-
-  x[gtn(x)] <- x[gtn(x)] - 9L
-
-  # x
-
-  x <- z <- collapse::fsum(x, g = cheapr::rep_each_(seq_along(chk), 9)) + 24
-
-  x <- ceiling(x / 10L) * 10L - z
-
-  x == chk
-}

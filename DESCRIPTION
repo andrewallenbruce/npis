@@ -16,7 +16,8 @@ Imports:
     cli (>= 3.6.5),
     collapse (>= 2.1.6),
     rlang (>= 1.1.7),
-    vctrs (>= 0.7.2)
+    vctrs (>= 0.7.2),
+    purrr (>= 1.2.1)
 Suggests: 
     testthat (>= 3.3.2),
     tibble (>= 3.3.1)
