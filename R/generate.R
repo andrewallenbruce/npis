@@ -9,8 +9,8 @@
 #' @export
 generate <- function(x) {
   as.integer(
-    collapse::alloc(
-      value = cheapr::paste_(
+    replicate(
+      expr = cheapr::paste_(
         cheapr::c_(
           1,
           cheapr::sample_(0:9, 9L, TRUE)
@@ -21,10 +21,3 @@ generate <- function(x) {
     )
   )
 }
-
-# generate_npi <- function(x) {
-#   as.integer(replicate(
-#     n = x,
-#     expr = paste0(c(1, sample(0:9, 9, replace = TRUE)), collapse = "")
-#   ))
-# }
