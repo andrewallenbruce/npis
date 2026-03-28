@@ -30,7 +30,7 @@ one_nine <- function(x) {
 
 #' @noRd
 seq_n_digits <- function(x) {
-  seq_len(ceiling(log10(x)))
+  seq_len(n_digits(x))
 }
 
 #' @noRd

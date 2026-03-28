@@ -3,7 +3,7 @@ construct_npi <- function(npi) {
   npi_test <- npi
 
   # Remove the 10th digit to create the 9-position identifier part of the NPI
-  id <- unlist(strsplit(npi_test, ""), use.names = FALSE)[1:9]
+  id <- unlist_(strsplit(npi_test, ""))[1:9]
 
   #---
   id_print <- rlang::sym(paste0(c(id, "_"), collapse = ""))
@@ -50,10 +50,10 @@ construct_npi <- function(npi) {
   #---
 
   # Split and unlist to separate digits
-  x <- unlist(strsplit(x, ""), use.names = FALSE)
+  x <- unlist_(strsplit(x, ""))
 
   #---
-  rev2 <- unlist(strsplit(rev2, ""), use.names = FALSE)
+  rev2 <- unlist_(strsplit(rev2, ""))
   add <- sum(as.numeric(x))
   add_print <- rlang::sym(paste0(
     paste0(rev2, collapse = " + "),

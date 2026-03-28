@@ -1,3 +1,6 @@
+# https://www.cms.gov/Regulations-and-Guidance/Administrative-Simplification/NationalProvIdentStand/Downloads/NPIcheckdigit.pdf
+# # The ceiling function maps a real number x to the smallest integer number that is greater than or equal to x:
+
 #' @noRd
 checkLuhn <- function(number) {
   # must have at least 2 digits
@@ -28,7 +31,7 @@ checkLuhn <- function(number) {
   digits <- ifelse(digits > 9, digits - 9, digits)
 
   # does the sum divide by 10?
-  ((sum(digits) %% 10) == 0)
+  sum(digits) %% 10 == 0
 }
 
 #' @noRd
@@ -37,7 +40,17 @@ create_npi <- function(
   arg = rlang::caller_arg(npi),
   call = rlang::caller_env()
 ) {
-  # Must be numeric
+
+  if (nchar(npi) != 10L) {
+    cli::cli_abort(
+      c(
+        "An {.strong NPI} must be {.emph 10 digits long}.",
+        "x" = "{.val {npi}} contains {.val {nchar(npi)}} digit{?s}."
+      ),
+      call = call
+    )
+  }
+
   if (!grepl("^1[0-9]{9}$", npi, perl = TRUE)) {
     cli::cli_abort(
       c(
@@ -48,22 +61,12 @@ create_npi <- function(
     )
   }
 
-  # Must be 10 char length
-  if (nchar(npi) != 10L) {
-    cli::cli_abort(
-      c(
-        "An {.strong NPI} must be {.emph 100 digits long}.",
-        "x" = "{.val {npi}} contains {.val {nchar(npi)}} digit{?s}."
-      ),
-      call = call
-    )
-  }
 
   # Must pass Luhn algorithm
   npi_test <- as.character(npi)
 
   # Remove the 10th digit to create the 9-position identifier part of the NPI
-  id <- unlist(strsplit(npi_test, ""), use.names = FALSE)[1:9]
+  id <- unlist_(strsplit(npi_test, ""))[1:9]
 
   # Reverse order of digits
   x <- rev(id)
@@ -78,7 +81,7 @@ create_npi <- function(
   x <- rev(x)
 
   # Split and unlist to separate digits
-  x <- unlist(strsplit(x, ""), use.names = FALSE)
+  x <- unlist_(strsplit(x, ""))
 
   # Add constant 24 to the sum of the digits
   x <- sum(as.numeric(x)) + 24
