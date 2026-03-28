@@ -2,3 +2,12 @@
 ^\.Rproj\.user$
 ^\.positai$
 ^\.claude$
+^LICENSE\.md$
+^CODE_OF_CONDUCT\.md$
+^README\.Rmd$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
+^\.github$
+^[.]?air[.]toml$
+^\.vscode$

@@ -1,0 +1,11 @@
+url: https://andrewallenbruce.github.io/npis/
+
+template:
+  bootstrap: 5
+  theme: tango
+  light-switch: true
+  bslib:
+    base_font: {google: "Inter"}
+    heading_font: {google: "Recursive"}
+    code_font: {google: "IBM Plex Mono"}
+

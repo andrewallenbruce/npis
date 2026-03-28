@@ -5,10 +5,22 @@ Authors@R:
     person(c("Andrew", "Allen"), "Bruce", , "andrewallenbruce@gmail.com", role = c("aut", "cre", "cph"))
 Maintainer: Andrew Allen Bruce <andrewallenbruce@gmail.com>
 Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
-URL: https://github.com/andrewallenbruce/npis
+License: MIT + file LICENSE
+URL: https://github.com/andrewallenbruce/npis,
+    https://andrewallenbruce.github.io/npis/
 BugReports: https://github.com/andrewallenbruce/npis/issues
+Depends: 
+    R (>= 4.1.0)
+Imports: 
+    cheapr (>= 1.5.0),
+    cli (>= 3.6.5),
+    collapse (>= 2.1.6),
+    purrr (>= 1.2.1),
+    rlang (>= 1.1.7)
+Suggests: 
+    testthat (>= 3.3.2)
+Config/testthat/edition: 3
+Config/testthat/parallel: true
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.3
