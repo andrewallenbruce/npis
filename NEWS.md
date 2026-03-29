@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# npis 0.0.0.9009 (2026-03-29)
+
+* adding validation checks
+
+
 # npis 0.0.0.9008 (2026-03-29)
 
 * updated package doc
