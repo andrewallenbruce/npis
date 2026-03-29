@@ -15,3 +15,7 @@
   :
 
   Create an `npi` vector
+
+- [`npis`](https://andrewallenbruce.github.io/npis/reference/npis-package.md)
+  [`npis-package`](https://andrewallenbruce.github.io/npis/reference/npis-package.md)
+  : npis: What the Package Does (One Line, Title Case)

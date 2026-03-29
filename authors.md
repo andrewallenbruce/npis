@@ -10,12 +10,12 @@ Source:
 [`DESCRIPTION`](https://github.com/andrewallenbruce/npis/blob/master/DESCRIPTION)
 
 Bruce AA (2026). *npis: What the Package Does (One Line, Title Case)*. R
-package version 0.0.0.9008, <https://github.com/andrewallenbruce/npis>.
+package version 0.0.0.9009, <https://github.com/andrewallenbruce/npis>.
 
     @Manual{,
       title = {npis: What the Package Does (One Line, Title Case)},
       author = {Andrew Allen Bruce},
       year = {2026},
-      note = {R package version 0.0.0.9008},
+      note = {R package version 0.0.0.9009},
       url = {https://github.com/andrewallenbruce/npis},
     }
