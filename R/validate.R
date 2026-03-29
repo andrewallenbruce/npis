@@ -46,10 +46,3 @@ explode_number <- function(x) {
     _[[1]] |>
     as.numeric()
 }
-
-#' @noRd
-check_ten_digits <- function(x) {
-  if (all_not_ten_digits(x)) {
-    cli::cli_abort("All input to {.arg x} must have 10 digits")
-  }
-}

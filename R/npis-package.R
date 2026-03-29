@@ -48,7 +48,7 @@
 #' the second example) when the NPI is used without the prefix.
 #'
 #' @source [Requirements for National Provider Identifier (NPI) and NPI Check Digit](https://www.cms.gov/Regulations-and-Guidance/Administrative-Simplification/NationalProvIdentStand/Downloads/NPIcheckdigit.pdf)
-#' @keywords internal
+#' @export
 "_PACKAGE"
 
 ## usethis namespace: start

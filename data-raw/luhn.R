@@ -1,3 +1,58 @@
+#' @noRd
+luhn <- function(x) {
+  x <- rev(as.integer(unlist(
+    strsplit(as.character(x), split = "", fixed = TRUE),
+    use.names = FALSE
+  )))
+
+  div <- seq_along(x) %% 2L
+  odd <- div == 1L
+  even <- div == 0L
+
+  x[even] <- x[even] * 2L
+  x[even] <- ifelse(x[even] > 9L, x[even] - 9L, x[even])
+
+  sum_odd <- sum(x[odd])
+  sum_even <- sum(x[even])
+
+  sum_x <- sum_odd + sum_even
+
+  sum_x %% 10L == 0L
+}
+
+#' @noRd
+checkLuhn <- function(number) {
+  # must have at least 2 digits
+  if (nchar(number) <= 2) {
+    return(FALSE)
+  }
+
+  # strip spaces
+  number <- gsub(pattern = " ", replacement = "", number)
+
+  # Return FALSE if not a number
+  if (!grepl("^[[:digit:]]+$", number)) {
+    return(FALSE)
+  }
+
+  # split the string, convert it to a list, and reverse it
+  digits <- unlist(strsplit(number, ""))
+  digits <- digits[length(digits):1]
+
+  to_replace <- seq(2, length(digits), 2)
+  digits[to_replace] <- as.numeric(digits[to_replace]) * 2
+
+  # gonna do some maths, let's convert it to numbers
+  digits <- as.numeric(digits)
+
+  # a digit cannot be two digits, so any that are greater than 9, subtract 9 and
+  # make the world a better place
+  digits <- ifelse(digits > 9, digits - 9, digits)
+
+  # does the sum divide by 10?
+  sum(digits) %% 10 == 0
+}
+
 luhn_check <- function(x) {
   if (rlang::has_length(x, 1L)) {
     return(luhn_impl(x))
