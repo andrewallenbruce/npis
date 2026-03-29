@@ -1,5 +1,9 @@
 # Changelog
 
+## npis 0.0.0.9008 (2026-03-29)
+
+- updated package doc
+
 ## npis 0.0.0.9007 (2026-03-28)
 
 - Same as previous version.
