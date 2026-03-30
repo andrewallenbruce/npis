@@ -4,22 +4,21 @@
 #'
 #' @param x integer, number of NPIs to generate
 #' @param prop double; proportion of NAs to insert
+#' @param syntactic boolean; technically valid NPIs
 #' @returns An integer vector of unvalidated NPIs
 #' @examples
-#' generate(100, 0.1)
+#' generate(100)
 #' @export
-generate <- function(x = 100L, prop = 0.1) {
+generate <- function(x = 100L, prop = 0.1, syntactic = TRUE) {
   if (prop > 1L) {
     cli::cli_abort("{.arg prop} cannot be greater than 1.")
   }
 
-  pay <- \() cheapr::paste_(cheapr::sample_(0:9, 9L, TRUE), collapse = "")
-
-  N <- strtoi(cheapr::paste_(1L, replicate(x, pay())))
-
-  if (prop == 0L) {
-    return(N)
+  if (syntactic || prop == 0L) {
+    return(strtoi(cheapr::paste_(1L, replicate(x, sample_payload()))))
   }
+
+  N <- as.integer(cheapr::paste_(1L, replicate(x, sample_payload())))
 
   idx <- cheapr::which_(
     N %in_%
@@ -35,28 +34,13 @@ generate <- function(x = 100L, prop = 0.1) {
 }
 
 #' @noRd
+sample_payload <- function() {
+  cheapr::paste_(cheapr::sample_(0:9, 9L, TRUE), collapse = "")
+}
+
+#' @noRd
 unlist_ <- function(x) {
   unlist(x, use.names = FALSE)
-}
-
-#' @noRd
-any2 <- function(x) {
-  collapse::anyv(x, TRUE)
-}
-
-#' @noRd
-all2 <- function(x) {
-  collapse::allv(x, TRUE)
-}
-
-#' @noRd
-has_letter <- function(x) {
-  grepl("[A-Z]", x, ignore.case = TRUE, perl = TRUE)
-}
-
-#' @noRd
-is_numeric <- function(x) {
-  !has_letter(x)
 }
 
 #' @noRd

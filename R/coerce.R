@@ -3,7 +3,6 @@
 #' Double dispatch methods to support [vctrs::vec_ptype2()].
 #'
 #' @inheritParams vctrs::vec_ptype2
-#'
 #' @method vec_ptype2 npi
 #' @export
 #' @export vec_ptype2.npi

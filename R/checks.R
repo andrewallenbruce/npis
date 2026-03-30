@@ -1,24 +1,31 @@
-# npi <- ex[1:20]
-# npi[5] <- NA_integer_
-# npi[6] <- npi[6] %/% 10L
 #' @noRd
-check_digits <- function(
-  npi,
-  arg = rlang::caller_arg(npi),
+n_digits <- function(x) {
+  as.integer(cheapr::ceiling_(cheapr::log10_(x)))
+}
+
+#' @noRd
+all_10_digits <- function(x) {
+  collapse::allv(n_digits(x), 10L)
+}
+
+#' @noRd
+which_not_10 <- function(x) {
+  collapse::whichv(n_digits(x), 10L, invert = TRUE)
+}
+
+#' @noRd
+check_ndigits <- function(
+  x,
+  arg = rlang::caller_arg(x),
   call = rlang::caller_env()
 ) {
-
-  if (anyNA(npi)) {
-    npi <- cheapr::sset(npi, cheapr::which_not_na(npi))
-  }
-
-  if (collapse::anyv(n_digits(npi) == 10L, FALSE)) {
-    i <- collapse::whichv(n_digits(npi) == 10L, FALSE)
+  if (!all_10_digits(x)) {
+    i <- which_not_10(x)
 
     cli::cli_abort(
       c(
-        "An {.strong NPI} must be {.val 10 digits}.",
-        "x" = "{.val {npi[i]}} contain{?s} {.val {n_digits(npi[i])}} digit{?s}."
+        " " = "An {.cls npi} must be {.val {10L}} digits.",
+        "x" = "{.val {x[i]}} contain{?s} {.val {n_digits(x[i])}} digit{?s}."
       ),
       arg = arg,
       call = call

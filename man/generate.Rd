@@ -4,12 +4,14 @@
 \alias{generate}
 \title{Generate random NPIs}
 \usage{
-generate(x = 100L, prop = 0.1)
+generate(x = 100L, prop = 0.1, syntactic = TRUE)
 }
 \arguments{
 \item{x}{integer, number of NPIs to generate}
 
 \item{prop}{double; proportion of NAs to insert}
+
+\item{syntactic}{boolean; technically valid NPIs}
 }
 \value{
 An integer vector of unvalidated NPIs
@@ -18,5 +20,5 @@ An integer vector of unvalidated NPIs
 Creates an integer vector of unvalidated NPIs.
 }
 \examples{
-generate(100, 0.1)
+generate(100)
 }

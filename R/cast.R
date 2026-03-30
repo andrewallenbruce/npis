@@ -3,7 +3,6 @@
 #' Double dispatch methods to support [vctrs::vec_cast()].
 #'
 #' @inheritParams vctrs::vec_cast
-#'
 #' @keywords internal
 #' @method vec_cast npi
 #' @export

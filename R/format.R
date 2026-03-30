@@ -1,8 +1,8 @@
 #' @method format npi
 #' @export
 format.npi <- function(x, ...) {
-  out <- formatC(vec_data(x))
-  out[is.na(x)] <- NA_integer_
+  out <- formatC(vec_data(x), format = "d", width = "10")
+  out[collapse::whichNA(x)] <- NA
   out
 }
 

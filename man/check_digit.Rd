@@ -2,11 +2,14 @@
 % Please edit documentation in R/luhn.R
 \name{check_digit}
 \alias{check_digit}
+\alias{first_digit}
 \alias{last_digit}
 \alias{examples}
 \title{Luhn Check}
 \usage{
 check_digit(x)
+
+first_digit(x)
 
 last_digit(x)
 

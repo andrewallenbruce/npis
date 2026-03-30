@@ -19,14 +19,25 @@
 check_digit <- function(x) {
   IDX <- c(1L, 3L, 5L, 7L, 9L)
 
-  x <- matrix(explode(payload(x)), ncol = 9L, byrow = TRUE)
+  x <- matrix(
+    explode(payload(x)),
+    nrow = cheapr::vector_length(x),
+    ncol = 9L,
+    byrow = TRUE
+  )
 
   x[, IDX] <- x[, IDX] * 2L
   x[, IDX] <- cheapr::if_else_(x[, IDX] > 9L, x[, IDX] - 9L, x[, IDX])
 
   x <- rowSums(x) + 24L
 
-  as.integer(ceiling(x / 10L) * 10L - x)
+  as.integer(cheapr::ceiling_(x / 10L) * 10L - x)
+}
+
+#' @export
+#' @rdname check_digit
+first_digit <- function(x) {
+  as.integer(substring(unclass(x), 1L, 1L))
 }
 
 #' @export
@@ -42,7 +53,7 @@ payload <- function(x) {
 
 #' @noRd
 explode <- function(x) {
-  strtoi(
+  as.integer(
     unlist_(
       strsplit(
         as.character(x),

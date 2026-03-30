@@ -33,15 +33,17 @@ npi <- function(x = integer()) {
 #' @export
 #' @rdname npi
 new_npi <- function(x = integer()) {
-  if (!is_integer(x)) {
-    abort("`x` must be an integer vector.")
-  }
+  vec_assert(x, integer())
   new_vctr(x, class = "npi")
 }
 
 #' @export
 #' @rdname npi
 validate_npi <- function(x) {
+  x <- collapse::na_rm(x)
+  check_ndigits(x)
+  # check_first(x)
+  # check_luhn(x)
   invisible(x)
 }
 
@@ -66,11 +68,13 @@ as_npi.default <- function(x, ...) {
 #' @export
 #' @rdname npi
 as_npi.character <- function(x, ...) {
-  new_npi(as.integer(x))
+  x <- as.integer(x)
+  npi(x)
 }
 
 #' @export
 #' @rdname npi
 as_npi.double <- function(x, ...) {
-  new_npi(as.integer(x))
+  x <- as.integer(x)
+  npi(x)
 }

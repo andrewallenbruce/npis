@@ -1,4 +1,9 @@
 #' @noRd
+sum_digits <- function(x) {
+  sum(floor(x / 10L^(seq_n_digits(x) - 1L)) %% 10L)
+}
+
+#' @noRd
 check_luhn <- function(x) {
   gtn <- function(x) cheapr::which_(x > 9L)
 
