@@ -4,7 +4,7 @@ methods::setOldClass(c("npi", "vctrs_vctr"))
 #'
 #'    - `new_npi()` is a low-level constructor that takes a vector.
 #'    - `npi()` constructs an npi object from a vector.
-#'    - `as_npi()` and `is_npi()` simply forward to [vctrs::vec_cast()] and [inherits()], respectively.
+#'    - `as_npi()` and `is_npi()` forward to [vctrs::vec_cast()] and [inherits()], respectively.
 #'
 #' @param x a vector
 #' @param ... Passed on to methods.

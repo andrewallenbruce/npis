@@ -50,5 +50,7 @@
 #' @import vctrs
 #' @import rlang
 #' @importFrom methods setOldClass
+#' @importFrom cheapr %in_% %!in_%
+#' @importFrom collapse %iin% %!iin%
 ## usethis namespace: end
 NULL
