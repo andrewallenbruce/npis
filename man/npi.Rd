@@ -43,7 +43,8 @@ An S3 vector of class \verb{<npi>}
 }
 }
 \examples{
-x <- generate(10, 0.2)
+# x <- generate(10, 0.2)
+x <- examples()[1:10]
 x
 is_npi(x)
 
@@ -55,5 +56,5 @@ data.frame(x)
 
 tibble::tibble(x)
 
-as_npi(c("1234567891", 1234567891, 1234567891L, NA_character_))
+as_npi(c("1234567893", 1234567893, 1234567893L, NA_character_))
 }
