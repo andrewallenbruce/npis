@@ -3,9 +3,11 @@
 #' Helpers to construct the Luhn algorithm check
 #'
 #' @param x a vector
+#' @inheritParams rlang::args_error_context
 #' @returns An integer vector
 #' @examples
 #' x <- examples()
+#' check_luhn(x)
 #' head(x, 20)
 #'
 #' id <- last_digit(x)
@@ -16,6 +18,28 @@
 #'
 #' all(head(id, 20) == head(x, 20))
 #' @export
+check_luhn <- function(
+  x,
+  arg = rlang::caller_arg(x),
+  call = rlang::caller_env()
+) {
+  lst <- last_digit(x)
+  chk <- check_digit(x)
+  if (!collapse::all_identical(lst, chk)) {
+    i <- collapse::whichv(lst, chk, invert = TRUE)
+    cli::cli_abort(
+      c(
+        "An {.cls npi} must pass the Luhn check.",
+        "i" = "Invalid locations: {.val {i}}."
+      ),
+      arg = arg,
+      call = call
+    )
+  }
+}
+
+#' @export
+#' @rdname check_luhn
 check_digit <- function(x) {
   IDX <- c(1L, 3L, 5L, 7L, 9L)
 
@@ -35,13 +59,13 @@ check_digit <- function(x) {
 }
 
 #' @export
-#' @rdname check_digit
+#' @rdname check_luhn
 first_digit <- function(x) {
   as.integer(substring(unclass(x), 1L, 1L))
 }
 
 #' @export
-#' @rdname check_digit
+#' @rdname check_luhn
 last_digit <- function(x) {
   x %% 10L
 }
@@ -65,7 +89,7 @@ explode <- function(x) {
 }
 
 #' @export
-#' @rdname check_digit
+#' @rdname check_luhn
 examples <- function() {
   get_pin("examples")
 }

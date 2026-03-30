@@ -13,6 +13,7 @@ which_not_10 <- function(x) {
   collapse::whichv(n_digits(x), 10L, invert = TRUE)
 }
 
+#' @inheritParams rlang::args_error_context
 #' @noRd
 check_ndigits <- function(
   x,
@@ -26,7 +27,6 @@ check_ndigits <- function(
       c(
         "An {.cls npi} must be {.val {10L}} digits.",
         "i" = "Invalid locations: {.val {i}}."
-        # "x" = "{.val {x[i]}} contain{?s} {.val {n_digits(x[i])}} digit{?s}."
       ),
       arg = arg,
       call = call
