@@ -24,8 +24,9 @@ check_ndigits <- function(
 
     cli::cli_abort(
       c(
-        " " = "An {.cls npi} must be {.val {10L}} digits.",
-        "x" = "{.val {x[i]}} contain{?s} {.val {n_digits(x[i])}} digit{?s}."
+        "An {.cls npi} must be {.val {10L}} digits.",
+        "i" = "Invalid locations: {.val {i}}."
+        # "x" = "{.val {x[i]}} contain{?s} {.val {n_digits(x[i])}} digit{?s}."
       ),
       arg = arg,
       call = call

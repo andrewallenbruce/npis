@@ -26,6 +26,7 @@ methods::setOldClass(c("npi", "vctrs_vctr"))
 #' @export
 npi <- function(x = integer()) {
   x <- vec_cast(x, integer())
+  vec_assert(x, integer())
   validate_npi(x)
   new_npi(x)
 }
@@ -33,7 +34,6 @@ npi <- function(x = integer()) {
 #' @export
 #' @rdname npi
 new_npi <- function(x = integer()) {
-  vec_assert(x, integer())
   new_vctr(x, class = "npi")
 }
 
