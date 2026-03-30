@@ -1,6 +1,6 @@
 Package: npis
 Title: Vectorized NPIs for R
-Version: 0.0.0.9012
+Version: 0.0.0.9013
 Authors@R: 
     person(c("Andrew", "Allen"), "Bruce", , "andrewallenbruce@gmail.com", role = c("aut", "cre", "cph"))
 Maintainer: Andrew Allen Bruce <andrewallenbruce@gmail.com>
