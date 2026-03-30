@@ -1,5 +1,10 @@
 # Changelog
 
+## npis 0.0.0.9016 (2026-03-30)
+
+- [`check_luhn()`](https://andrewallenbruce.github.io/npis/reference/check_luhn.md)
+  initial implementation
+
 ## npis 0.0.0.9015 (2026-03-30)
 
 - trying to get the order of checks correct
