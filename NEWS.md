@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# npis 0.0.0.9011 (2026-03-30)
+
+* internal package structure reorganized
+
+
 # npis 0.0.0.9010 (2026-03-29)
 
 * filling out internal structures
