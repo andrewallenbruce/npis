@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# npis 0.0.0.9017 (2026-03-30)
+
+* Use `check_luhn()` within `validate_npi()`
+
+
 # npis 0.0.0.9016 (2026-03-30)
 
 * `check_luhn()` initial implementation
