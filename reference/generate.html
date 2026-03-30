@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">npis</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9011</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9012</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,7 +45,7 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">generate</span><span class="op">(</span><span class="va">x</span>, prop_na <span class="op">=</span> <span class="fl">0L</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">generate</span><span class="op">(</span>x <span class="op">=</span> <span class="fl">100L</span>, prop <span class="op">=</span> <span class="fl">0.1</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -56,7 +56,7 @@
 <dd><p>integer, number of NPIs to generate</p></dd>
 
 
-<dt id="arg-prop-na">prop_na<a class="anchor" aria-label="anchor" href="#arg-prop-na"></a></dt>
+<dt id="arg-prop">prop<a class="anchor" aria-label="anchor" href="#arg-prop"></a></dt>
 <dd><p>double; proportion of NAs to insert</p></dd>
 
 </dl></div>
@@ -69,21 +69,21 @@
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">generate</span><span class="op">(</span><span class="fl">100</span>, <span class="fl">0.1</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 1645358447 1164415312 1856458594 1103750512 1081470292 1169253906</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   [7] 1552817006 1589156954 1620405001 1460366717 1828584216 1331812209</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [13] 1643026056         NA 1923518421 1493273806 1379768898 1282064835</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [7] 1552817006         NA 1620405001 1460366717 1828584216 1331812209</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [13] 1643026056  197503154 1923518421         NA 1379768898 1282064835</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [19] 1762727716 1190491880 1630889351 1919914231 1445207757 1217694794</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [25] 1230816297 1200899419 1713463332 1454238456 1695471971 1550445800</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [31] 1831766965 1498572991 1966369189 1591180000 1812847503 1921699145</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [37] 1965232539 1688012909 1446674514 1404893592 1207483289 1807595724</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [43] 1859083550 1208091799 1038012107 1864169699         NA 1134747353</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [31] 1831766965         NA 1966369189 1591180000 1812847503 1921699145</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [37] 1965232539         NA 1446674514         NA         NA 1807595724</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [43] 1859083550 1208091799 1038012107 1864169699  113917737 1134747353</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [49] 1755866133 1683469141 1743230604 1596276100 1892937746 1018721342</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [55]         NA 1359106362 1062666215 1036360598 1188002298 1472059817</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [61] 1593826129 1358919849 1431131493 1710275898 1455067299 1992730603</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [67] 1271645692         NA 1058805958         NA 1418072091 1397634166</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [73] 1970130551         NA 1422489998         NA 1857750771 1088292503</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [79] 1140493746 1004627255 1724372667 1738515974 1010258157 1429864793</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [85] 1639505515 1752676453         NA 1643636007 1298266457 1659711449</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [91]         NA 1246495699 1230388238         NA 1699657962 1367481144</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [55]  100283200 1359106362 1062666215 1036360598 1188002298 1472059817</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [61] 1593826129 1358919849 1431131493 1710275898 1455067299         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [67] 1271645692  151995728 1058805958         NA 1418072091 1397634166</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [73]         NA  150219092 1422489998  143098398 1857750771 1088292503</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [79] 1140493746         NA 1724372667 1738515974 1010258157 1429864793</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [85] 1639505515 1752676453  138388737 1643636007 1298266457 1659711449</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [91]  124138833 1246495699 1230388238  155883757 1699657962 1367481144</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [97] 1748685716 1129094716 1699104395 1695090401</span>
 </code></pre></div>
     </div>

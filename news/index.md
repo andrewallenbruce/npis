@@ -1,5 +1,12 @@
 # Changelog
 
+## npis 0.0.0.9012 (2026-03-30)
+
+- refactored
+  [`generate()`](https://andrewallenbruce.github.io/npis/reference/generate.md)
+  to allow for insertion of invalid lengths
+- added pin of example NPIs for testing
+
 ## npis 0.0.0.9011 (2026-03-30)
 
 - internal package structure reorganized
