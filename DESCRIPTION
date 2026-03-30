@@ -4,8 +4,8 @@ Version: 0.0.0.9010
 Authors@R: 
     person(c("Andrew", "Allen"), "Bruce", , "andrewallenbruce@gmail.com", role = c("aut", "cre", "cph"))
 Maintainer: Andrew Allen Bruce <andrewallenbruce@gmail.com>
-Description: Vectorised S3 NPI (National Provider Identifier) objects with tools 
-    for validation and manipulation.
+Description: Vectorised S3 NPI (National Provider Identifier) objects with
+    tools for validation and manipulation.
 License: MIT + file LICENSE
 URL: https://github.com/andrewallenbruce/npis,
     https://andrewallenbruce.github.io/npis/
@@ -16,13 +16,13 @@ Imports:
     cheapr (>= 1.5.0),
     cli (>= 3.6.5),
     collapse (>= 2.1.6),
+    methods,
+    purrr (>= 1.2.1),
     rlang (>= 1.1.7),
-    vctrs (>= 0.7.2),
-    purrr (>= 1.2.1)
+    vctrs (>= 0.7.2)
 Suggests: 
     testthat (>= 3.3.2),
-    tibble (>= 3.3.1),
-    methods
+    tibble (>= 3.3.1)
 Config/Needs/website: tibble
 Config/testthat/edition: 3
 Config/testthat/parallel: true

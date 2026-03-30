@@ -45,3 +45,30 @@ x
 CEIL <- ceiling(x / 10L) * 10L
 
 CEIL - x
+
+# =================================================
+# The ceiling function maps a real number x to the smallest integer number that is greater than or equal to x:
+LUHNIDX <- c(1L, 3L, 5L, 7L, 9L)
+
+LUHNIDX <- c(TRUE, FALSE)
+
+whole <- 17893729974L
+n_digits(whole)
+
+ckdigit <- whole %% 10L
+ckdigit
+
+payload <- whole %/% 10L
+payload
+
+payload <- strtoi(unlist_(strsplit(as.character(payload), "")))
+payload <- rev(payload)
+payload
+
+payload[LUHNIDX] <- payload[LUHNIDX] * 2
+payload
+
+chk <- sum(ifelse(payload > 9L, payload - 9L, payload))
+chk
+
+(10L - (chk %% 10L)) %% 10L

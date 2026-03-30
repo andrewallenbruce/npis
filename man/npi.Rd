@@ -2,27 +2,48 @@
 % Please edit documentation in R/npi.R
 \name{npi}
 \alias{npi}
+\alias{new_npi}
+\alias{validate_npi}
 \alias{is_npi}
-\title{Create an \code{npi} vector}
+\alias{as_npi}
+\alias{as_npi.default}
+\alias{as_npi.character}
+\alias{as_npi.double}
+\title{Construct an \code{npi} object}
 \usage{
 npi(x = integer())
 
+new_npi(x = integer())
+
+validate_npi(x)
+
 is_npi(x)
+
+as_npi(x, ...)
+
+\method{as_npi}{default}(x, ...)
+
+\method{as_npi}{character}(x, ...)
+
+\method{as_npi}{double}(x, ...)
 }
 \arguments{
-\item{x}{\itemize{
-\item For \code{npi()}: An integer vector.
-\item For \code{is_npi()}: An object to test.
-}}
+\item{x}{a vector}
+
+\item{...}{Passed on to methods.}
 }
 \value{
-An S3 vector of class \code{npi}
+An S3 vector of class \verb{<npi>}
 }
 \description{
-This creates an integer vector of valid NPIs.
+\itemize{
+\item \code{new_npi()} is a low-level constructor that takes a vector.
+\item \code{npi()} constructs an npi object from a vector.
+\item \code{as_npi()} and \code{is_npi()} simply forward to \code{\link[vctrs:vec_cast]{vctrs::vec_cast()}} and \code{\link[=inherits]{inherits()}}, respectively.
+}
 }
 \examples{
-x <- generate(10)
+x <- generate(10, 0.2)
 x
 is_npi(x)
 
@@ -34,4 +55,5 @@ data.frame(x)
 
 tibble::tibble(x)
 
+as_npi(c("1234567891", 1234567891, 1234567891L, NA_character_))
 }

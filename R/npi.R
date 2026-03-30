@@ -1,18 +1,17 @@
-# for compatibility with the S4 system
 methods::setOldClass(c("npi", "vctrs_vctr"))
 
-#' Create an `npi` vector
+#' Construct an `npi` object
 #'
-#' This creates an integer vector of valid NPIs.
+#'    - `new_npi()` is a low-level constructor that takes a vector.
+#'    - `npi()` constructs an npi object from a vector.
+#'    - `as_npi()` and `is_npi()` simply forward to [vctrs::vec_cast()] and [inherits()], respectively.
 #'
-#' @param x
-#'  * For `npi()`: An integer vector.
-#'  * For `is_npi()`: An object to test.
-#'
-#' @returns An S3 vector of class `npi`
+#' @param x a vector
+#' @param ... Passed on to methods.
+#' @returns An S3 vector of class `<npi>`
 #'
 #' @examples
-#' x <- generate(10)
+#' x <- generate(10, 0.2)
 #' x
 #' is_npi(x)
 #'
@@ -24,12 +23,16 @@ methods::setOldClass(c("npi", "vctrs_vctr"))
 #'
 #' tibble::tibble(x)
 #'
+#' as_npi(c("1234567891", 1234567891, 1234567891L, NA_character_))
 #' @export
 npi <- function(x = integer()) {
   x <- vec_cast(x, integer())
+  validate_npi(x)
   new_npi(x)
 }
 
+#' @export
+#' @rdname npi
 new_npi <- function(x = integer()) {
   if (!is_integer(x)) {
     abort("`x` must be an integer vector.")
@@ -37,8 +40,38 @@ new_npi <- function(x = integer()) {
   new_vctr(x, class = "npi")
 }
 
-#' @rdname npi
 #' @export
+#' @rdname npi
+validate_npi <- function(x) {
+  invisible(x)
+}
+
+#' @export
+#' @rdname npi
 is_npi <- function(x) {
   inherits(x, "npi")
+}
+
+#' @export
+#' @rdname npi
+as_npi <- function(x, ...) {
+  UseMethod("as_npi")
+}
+
+#' @export
+#' @rdname npi
+as_npi.default <- function(x, ...) {
+  vec_cast(x, new_npi())
+}
+
+#' @export
+#' @rdname npi
+as_npi.character <- function(x, ...) {
+  new_npi(as.integer(x))
+}
+
+#' @export
+#' @rdname npi
+as_npi.double <- function(x, ...) {
+  new_npi(as.integer(x))
 }
