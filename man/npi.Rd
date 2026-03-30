@@ -39,7 +39,7 @@ An S3 vector of class \verb{<npi>}
 \itemize{
 \item \code{new_npi()} is a low-level constructor that takes a vector.
 \item \code{npi()} constructs an npi object from a vector.
-\item \code{as_npi()} and \code{is_npi()} simply forward to \code{\link[vctrs:vec_cast]{vctrs::vec_cast()}} and \code{\link[=inherits]{inherits()}}, respectively.
+\item \code{as_npi()} and \code{is_npi()} forward to \code{\link[vctrs:vec_cast]{vctrs::vec_cast()}} and \code{\link[=inherits]{inherits()}}, respectively.
 }
 }
 \examples{

@@ -9,7 +9,6 @@ methods::setOldClass(c("npi", "vctrs_vctr"))
 #' @param x a vector
 #' @param ... Passed on to methods.
 #' @returns An S3 vector of class `<npi>`
-#'
 #' @examples
 #' x <- generate(10, 0.2)
 #' x

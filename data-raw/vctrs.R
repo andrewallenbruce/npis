@@ -1,3 +1,6 @@
+library(vctrs)
+library(npis)
+
 new_npi()
 npi()
 is_npi(npi())
@@ -15,10 +18,11 @@ vec_c(npi(50L), 1L)
 vec_c(NA, npi(50L))
 # but
 vec_c(TRUE, npi(50L))
+vec_c(npi(50L), TRUE)
 
 x <- npi(generate(3))
-x[1:2] <- 2:1
-x[[3]] <- 0.5
+x[1:2] <- generate(2)
+x[[3]] <- 1060001869L
 x
 
 # Correct
@@ -29,6 +33,8 @@ c(npi(generate(1)), factor(1))
 c(factor(1), npi(generate(1)))
 
 
-x <- generate(10)
+npis:::n_digits(generate(100))
 
-n_digits(x)
+
+x <- as_npi(npis:::npi_examples())
+x

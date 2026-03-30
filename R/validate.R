@@ -4,6 +4,11 @@ n_digits <- function(x) {
 }
 
 #' @noRd
+n_digits_ <- function(x) {
+  cheapr::set_ceiling(cheapr::set_log(as.double(x), base = 10))
+}
+
+#' @noRd
 is_ten_digits <- function(x) {
   n_digits(x) == 10L
 }
@@ -16,16 +21,6 @@ all_ten_digits <- function(x) {
 #' @noRd
 all_not_ten_digits <- function(x) {
   collapse::allv(is_ten_digits(x), FALSE)
-}
-
-#' @noRd
-tenth <- function(x) {
-  x %% 10L
-}
-
-#' @noRd
-one_nine <- function(x) {
-  x %/% 10L
 }
 
 #' @noRd

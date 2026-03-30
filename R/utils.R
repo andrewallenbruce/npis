@@ -35,11 +35,6 @@ generate <- function(x = 100L, prop = 0.1) {
 }
 
 #' @noRd
-npi_examples <- function() {
-  get_pin("examples")
-}
-
-#' @noRd
 unlist_ <- function(x) {
   unlist(x, use.names = FALSE)
 }
