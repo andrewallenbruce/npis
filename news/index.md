@@ -1,5 +1,9 @@
 # Changelog
 
+## npis 0.0.0.9015 (2026-03-30)
+
+- trying to get the order of checks correct
+
 ## npis 0.0.0.9014 (2026-03-30)
 
 - validation checks
