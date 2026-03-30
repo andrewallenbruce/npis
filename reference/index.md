@@ -3,6 +3,7 @@
 ## All functions
 
 - [`check_digit()`](https://andrewallenbruce.github.io/npis/reference/check_digit.md)
+  [`first_digit()`](https://andrewallenbruce.github.io/npis/reference/check_digit.md)
   [`last_digit()`](https://andrewallenbruce.github.io/npis/reference/check_digit.md)
   [`examples()`](https://andrewallenbruce.github.io/npis/reference/check_digit.md)
   : Luhn Check

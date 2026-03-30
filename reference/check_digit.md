@@ -7,6 +7,8 @@ Helpers to construct the Luhn algorithm check
 ``` r
 check_digit(x)
 
+first_digit(x)
+
 last_digit(x)
 
 examples()
