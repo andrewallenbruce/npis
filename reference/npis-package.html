@@ -35,18 +35,15 @@ Each NPI generated must be unique, without requiring database access for verific
 Requirements for the NPI Check Digit
 
 
-The National Provider Identifier check digit is calculated using the Luhn formula
-for computing the modulus 10 "double-add-double" check digit. This algorithm is
-recognized as an ISO standard and is the specified check digit algorithm to be used
-for the card issuer identifier on a standard health identification card.
+The NPI check digit is calculated using the Luhn algorithm
+for computing the modulus 10 "double-add-double" check digit, a recognized
+ISO standard (ISO/IEC 7812).
 When an NPI is used as a card issuer identifier on a standard health identification
-card, it is preceded by the prefix 80840, in which 80 indicates health applications
-and 840 indicates the United States. The prefix is required only when the NPI is
-used as a card issuer identifier.
-However, in order that any NPI could be used as a card issuer identifier on a
-standard health identification card, the check digit will always be calculated
-as if the prefix is present. This is accomplished by adding the constant 24 in
-step 2 of the check digit calculation when the NPI is used without the prefix.
+card, it is prefixed by 80840, in which 80 indicates Health Applications
+and 840 indicates United States.
+The check digit will always be calculated as if the prefix is present. This is
+accomplished by simply adding the constant 24 in the check digit calculation
+when the NPI is used without the prefix.
 
 '><meta property="og:description" content='An S3 vctrs class representing a
 National Provider Identifier, a unique 10-digit identification number
@@ -84,18 +81,15 @@ Each NPI generated must be unique, without requiring database access for verific
 Requirements for the NPI Check Digit
 
 
-The National Provider Identifier check digit is calculated using the Luhn formula
-for computing the modulus 10 "double-add-double" check digit. This algorithm is
-recognized as an ISO standard and is the specified check digit algorithm to be used
-for the card issuer identifier on a standard health identification card.
+The NPI check digit is calculated using the Luhn algorithm
+for computing the modulus 10 "double-add-double" check digit, a recognized
+ISO standard (ISO/IEC 7812).
 When an NPI is used as a card issuer identifier on a standard health identification
-card, it is preceded by the prefix 80840, in which 80 indicates health applications
-and 840 indicates the United States. The prefix is required only when the NPI is
-used as a card issuer identifier.
-However, in order that any NPI could be used as a card issuer identifier on a
-standard health identification card, the check digit will always be calculated
-as if the prefix is present. This is accomplished by adding the constant 24 in
-step 2 of the check digit calculation when the NPI is used without the prefix.
+card, it is prefixed by 80840, in which 80 indicates Health Applications
+and 840 indicates United States.
+The check digit will always be calculated as if the prefix is present. This is
+accomplished by simply adding the constant 24 in the check digit calculation
+when the NPI is used without the prefix.
 
 '></head><body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -105,7 +99,7 @@ step 2 of the check digit calculation when the NPI is used without the prefix.
 
     <a class="navbar-brand me-2" href="../index.html">npis</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9010</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9011</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -171,18 +165,15 @@ combinations beginning with a 1 or 2.</p></li>
 <h3 id="requirements-for-the-npi-check-digit">Requirements for the NPI Check Digit<a class="anchor" aria-label="anchor" href="#requirements-for-the-npi-check-digit"></a></h3>
 
 
-<p>The National Provider Identifier check digit is calculated using the Luhn formula
-for computing the modulus 10 "double-add-double" check digit. This algorithm is
-recognized as an ISO standard and is the specified check digit algorithm to be used
-for the card issuer identifier on a standard health identification card.</p>
+<p>The NPI check digit is calculated using the <a href="https://en.wikipedia.org/wiki/Luhn_algorithm" class="external-link">Luhn algorithm</a>
+for computing the modulus 10 "double-add-double" check digit, a recognized
+ISO standard (<a href="https://en.wikipedia.org/wiki/ISO/IEC_7812" class="external-link">ISO/IEC 7812</a>).</p>
 <p>When an NPI is used as a card issuer identifier on a standard health identification
-card, it is preceded by the prefix 80840, in which 80 indicates health applications
-and 840 indicates the United States. The prefix is required only when the NPI is
-used as a card issuer identifier.</p>
-<p>However, in order that any NPI could be used as a card issuer identifier on a
-standard health identification card, the check digit will always be calculated
-as if the prefix is present. This is accomplished by adding the constant 24 in
-step 2 of the check digit calculation when the NPI is used without the prefix.</p>
+card, it is prefixed by <code>80840</code>, in which <code>80</code> indicates <strong>Health Applications</strong>
+and <code>840</code> indicates <strong>United States</strong>.</p>
+<p>The check digit will always be calculated as if the prefix is present. This is
+accomplished by simply adding the constant <code>24</code> in the check digit calculation
+when the NPI is used without the prefix.</p>
 </div>
 
     </div>

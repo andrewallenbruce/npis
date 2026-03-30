@@ -10,12 +10,12 @@ Source:
 [`DESCRIPTION`](https://github.com/andrewallenbruce/npis/blob/master/DESCRIPTION)
 
 Bruce AA (2026). *npis: Vectorized NPIs for R*. R package version
-0.0.0.9010, <https://github.com/andrewallenbruce/npis>.
+0.0.0.9011, <https://github.com/andrewallenbruce/npis>.
 
     @Manual{,
       title = {npis: Vectorized NPIs for R},
       author = {Andrew Allen Bruce},
       year = {2026},
-      note = {R package version 0.0.0.9010},
+      note = {R package version 0.0.0.9011},
       url = {https://github.com/andrewallenbruce/npis},
     }
