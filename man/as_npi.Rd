@@ -2,7 +2,7 @@
 % Please edit documentation in R/as_npi.R
 \name{as_npi}
 \alias{as_npi}
-\title{Convert to an \code{npi} vector}
+\title{Convert a vector to an \code{npi} object}
 \usage{
 as_npi(x, ...)
 }
@@ -12,10 +12,10 @@ as_npi(x, ...)
 \item{...}{These dots must be empty}
 }
 \value{
-An S3 vector of class \code{npi}
+An S3 vector of class \verb{<npi>}
 }
 \description{
-This creates an integer vector of valid NPIs.
+Converts a character or numeric vector of unvalidated NPIs into a validated \verb{<npi>} vector.
 }
 \examples{
 as_npi(c("1234567891", 1234567891, 1234567891L, NA_character_))

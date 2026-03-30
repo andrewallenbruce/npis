@@ -4,17 +4,19 @@
 \alias{generate}
 \title{Generate random NPIs}
 \usage{
-generate(x)
+generate(x, prop_na = 0L)
 }
 \arguments{
 \item{x}{integer, number of NPIs to generate}
+
+\item{prop_na}{double; proportion of NAs to insert}
 }
 \value{
 An integer vector of unvalidated NPIs
 }
 \description{
-This creates an integer vector of unvalidated NPIs.
+Creates an integer vector of unvalidated NPIs.
 }
 \examples{
-generate(100)
+generate(100, 0.1)
 }

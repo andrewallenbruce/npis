@@ -1,3 +1,6 @@
+# for compatibility with the S4 system
+methods::setOldClass(c("npi", "vctrs_vctr"))
+
 #' Create an `npi` vector
 #'
 #' This creates an integer vector of valid NPIs.

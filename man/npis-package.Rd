@@ -4,9 +4,9 @@
 \name{npis-package}
 \alias{npis}
 \alias{npis-package}
-\title{npis: What the Package Does (One Line, Title Case)}
+\title{npis: Vectorized NPIs for R}
 \source{
-\href{https://www.cms.gov/Regulations-and-Guidance/Administrative-Simplification/NationalProvIdentStand/Downloads/NPIcheckdigit.pdf}{Requirements for National Provider Identifier (NPI) and NPI Check Digit}
+\href{https://www.cms.gov/Regulations-and-Guidance/Administrative-Simplification/NationalProvIdentStand/Downloads/NPIcheckdigit.pdf}{PDF: Requirements for National Provider Identifier (NPI) and NPI Check Digit}
 }
 \description{
 An \href{https://github.com/r-lib/vctrs/}{S3 vctrs class} representing a
@@ -16,31 +16,26 @@ crucial for billing and administrative transactions as mandated by the
 Health Insurance Portability and Accountability Act (HIPAA).
 \subsection{Requirements for the NPI}{
 \enumerate{
-\item The NPI will meet the specifications detailed in the Final Rule for
-the Standard Unique Health Identifier for Health Care Providers (69 FR 3434),
-which was published on January 23, 2004.
-\item The NPI will consist of 9 numeric digits followed by one numeric check digit.
-\item The NPI will not have embedded intelligence.
-\item The NPI format and check digit calculation will be compatible with the
+\item The NPI must meet the specifications detailed in the \emph{Final Rule for the}
+\emph{Standard Unique Health Identifier for Health Care Providers} (\href{https://www.federalregister.gov/documents/2004/01/23/04-1149/hipaa-administrative-simplification-standard-unique-health-identifier-for-health-care-providers}{69 FR 3434}),
+published on January 23, 2004.
+\item The NPI must consist of 9 numeric digits followed by one numeric check digit.
+\item The NPI must not have embedded intelligence.
+\item The NPI format and check digit calculation must be compatible with the
 card issuer identifier on a standard health identification card. The
-card standard was developed by the National Committee for Information
-Technology Standards (NCITS), which is accredited by the American National
-Standards Institute. A discussion of the relation of the NPI to the card
-issuer identifier on an NCITS standard health identification card can be
-found in the preamble to the NPI Final Rule. Each card issuer identifier
-used on a standard health identification card must be unique. Therefore
-the NPI must be generated in a manner that will avoid collisions with
-other identifiers, such as the standard unique health plan identifier,
-that might be used as card issuer identifiers on standard health
-identification cards. In order to avoid such collisions, NPIs will
-initially be issued with the first digit = 1 or 2. These digits will not
-be used as the first digits for other card issuer identifiers. Use of
-other first digits for the NPI must be coordinated with the use of first
-digits by the standard health plan identifier, when it is adopted.
-\item Within the constraints of 4. above, the NPI generation will use a
+card standard was developed by NCITS, which is accredited by ANSI. Each
+card issuer identifier used on a standard health identification card must
+be unique. Therefore the NPI must be generated in a manner that will avoid
+collisions with other identifiers that might be used as card issuer
+identifiers on standard health identification cards. In order to avoid such
+collisions, NPIs will initially be issued with a first digit of 1 or 2.
+These digits will not be used as the first digits for other card issuer
+identifiers. Use of other first digits must be coordinated with the use of first
+digits by the standard health plan identifier, when adopted.
+\item Within the constraints of No. 4. above, the NPI generation must use a
 scattering algorithm that has the capability to use all possible numeric
-combinations beginning with 1 or 2.
-\item Each NPI generated will be unique, without requiring data base access for verification.
+combinations beginning with a 1 or 2.
+\item Each NPI generated must be unique, without requiring database access for verification.
 }
 }
 
@@ -54,11 +49,12 @@ for the card issuer identifier on a standard health identification card.
 When an NPI is used as a card issuer identifier on a standard health identification
 card, it is preceded by the prefix 80840, in which 80 indicates health applications
 and 840 indicates the United States. The prefix is required only when the NPI is
-used as a card issuer identifier. However, in order that any NPI could be used as
-a card issuer identifier on a standard health identification card, the check digit
-will always be calculated as if the prefix is present. This is accomplished by
-adding the constant 24 in step 2 of the check digit calculation (as shown in
-the second example) when the NPI is used without the prefix.
+used as a card issuer identifier.
+
+However, in order that any NPI could be used as a card issuer identifier on a
+standard health identification card, the check digit will always be calculated
+as if the prefix is present. This is accomplished by adding the constant 24 in
+step 2 of the check digit calculation when the NPI is used without the prefix.
 }
 }
 \seealso{
