@@ -1,5 +1,9 @@
 # Changelog
 
+## npis 0.0.0.9013 (2026-03-30)
+
+- Added pieces to construct vectorized Luhn check
+
 ## npis 0.0.0.9012 (2026-03-30)
 
 - refactored

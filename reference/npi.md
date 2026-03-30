@@ -4,7 +4,7 @@
 
 - `npi()` constructs an npi object from a vector.
 
-- `as_npi()` and `is_npi()` simply forward to
+- `as_npi()` and `is_npi()` forward to
   [`vctrs::vec_cast()`](https://vctrs.r-lib.org/reference/vec_cast.html)
   and [`inherits()`](https://rdrr.io/r/base/class.html), respectively.
 
