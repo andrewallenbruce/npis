@@ -1,5 +1,9 @@
 # Changelog
 
+## npis 0.0.0.9010 (2026-03-29)
+
+- filling out internal structures
+
 ## npis 0.0.0.9009 (2026-03-29)
 
 - adding validation checks

@@ -5,7 +5,7 @@
 - [`as_npi()`](https://andrewallenbruce.github.io/npis/reference/as_npi.md)
   :
 
-  Convert to an `npi` vector
+  Convert a vector to an `npi` object
 
 - [`generate()`](https://andrewallenbruce.github.io/npis/reference/generate.md)
   : Generate random NPIs
@@ -18,4 +18,4 @@
 
 - [`npis`](https://andrewallenbruce.github.io/npis/reference/npis-package.md)
   [`npis-package`](https://andrewallenbruce.github.io/npis/reference/npis-package.md)
-  : npis: What the Package Does (One Line, Title Case)
+  : npis: Vectorized NPIs for R

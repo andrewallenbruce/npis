@@ -1,6 +1,7 @@
-# Convert to an `npi` vector
+# Convert a vector to an `npi` object
 
-This creates an integer vector of valid NPIs.
+Converts a character or numeric vector of unvalidated NPIs into a
+validated `<npi>` vector.
 
 ## Usage
 
@@ -20,7 +21,7 @@ as_npi(x, ...)
 
 ## Value
 
-An S3 vector of class `npi`
+An S3 vector of class `<npi>`
 
 ## Examples
 

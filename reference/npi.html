@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">npis</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9009</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9010</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -69,46 +69,46 @@
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="generate.html">generate</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">x</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] 1506436951 1578228714 1127089493 1749938745 1306627303 1062098073</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [7] 1191860649 1389764480 1524399543 1540412194</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] 1515782287 1141270894 1937499387 1453066273 1030620980 1731918606</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [7] 1493897644 1805243995 1435404121 1946059061</span>
 <span class="r-in"><span><span class="fu">is_npi</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] FALSE</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu">npi</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">x</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;npi[10]&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] 1506436951 1578228714 1127089493 1749938745 1306627303 1062098073</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [7] 1191860649 1389764480 1524399543 1540412194</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] 1515782287 1141270894 1937499387 1453066273 1030620980 1731918606</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [7] 1493897644 1805243995 1435404121 1946059061</span>
 <span class="r-in"><span><span class="fu">is_npi</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] TRUE</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             x</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  1506436951</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  1578228714</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3  1127089493</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4  1749938745</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5  1306627303</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6  1062098073</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7  1191860649</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8  1389764480</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9  1524399543</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10 1540412194</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  1515782287</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  1141270894</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  1937499387</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  1453066273</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5  1030620980</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6  1731918606</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7  1493897644</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8  1805243995</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9  1435404121</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10 1946059061</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 10 × 1</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             x</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;npi&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 1506436951</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 1578228714</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 1127089493</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 1749938745</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 1306627303</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 1062098073</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 1191860649</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 1389764480</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 1524399543</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 1540412194</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 1515782287</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 1141270894</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 1937499387</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 1453066273</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 1030620980</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 1731918606</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 1493897644</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 1805243995</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 1435404121</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 1946059061</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
