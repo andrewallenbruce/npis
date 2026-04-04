@@ -4,7 +4,6 @@
 
 - [`check_luhn()`](https://andrewallenbruce.github.io/npis/reference/check_luhn.md)
   [`check_digit()`](https://andrewallenbruce.github.io/npis/reference/check_luhn.md)
-  [`first_digit()`](https://andrewallenbruce.github.io/npis/reference/check_luhn.md)
   [`last_digit()`](https://andrewallenbruce.github.io/npis/reference/check_luhn.md)
   [`examples()`](https://andrewallenbruce.github.io/npis/reference/check_luhn.md)
   : Luhn Check

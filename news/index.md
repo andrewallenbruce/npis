@@ -1,5 +1,9 @@
 # Changelog
 
+## npis 0.0.0.9018 (2026-04-04)
+
+- refactored luhn check
+
 ## npis 0.0.0.9017 (2026-03-30)
 
 - Use
