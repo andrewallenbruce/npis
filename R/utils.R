@@ -7,15 +7,15 @@
 #' @param syntactic boolean; technically valid NPIs
 #' @returns An integer vector of unvalidated NPIs
 #' @examples
-#' generate(100)
+#' generate(100, 0.2, FALSE)
 #' @export
-generate <- function(x = 100L, prop = 0.1, syntactic = TRUE) {
+generate <- function(x = 10L, prop = 0.1, syntactic = TRUE) {
   if (prop > 1L) {
     cli::cli_abort("{.arg prop} cannot be greater than 1.")
   }
 
   if (syntactic || prop == 0L) {
-    return(strtoi(cheapr::paste_(1L, replicate(x, sample_payload()))))
+    return(as.integer(cheapr::paste_(1L, replicate(x, sample_payload()))))
   }
 
   N <- as.integer(cheapr::paste_(1L, replicate(x, sample_payload())))

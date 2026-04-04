@@ -43,6 +43,6 @@
 #' @import rlang
 #' @importFrom methods setOldClass
 #' @importFrom cheapr %in_% %!in_%
-#' @importFrom collapse %iin% %!iin%
+#' @importFrom collapse %iin% %!iin% %==% %!=% %=% .c
 ## usethis namespace: end
 NULL

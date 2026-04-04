@@ -4,6 +4,11 @@ n_digits <- function(x) {
 }
 
 #' @noRd
+first_digit <- function(x) {
+  as.integer(x / (cheapr::pow_(10L, cheapr::log10_(x))))
+}
+
+#' @noRd
 all_10_digits <- function(x) {
   collapse::allv(n_digits(x), 10L)
 }

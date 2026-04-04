@@ -3,7 +3,6 @@
 \name{check_luhn}
 \alias{check_luhn}
 \alias{check_digit}
-\alias{first_digit}
 \alias{last_digit}
 \alias{examples}
 \title{Luhn Check}
@@ -11,8 +10,6 @@
 check_luhn(x, arg = rlang::caller_arg(x), call = rlang::caller_env())
 
 check_digit(x)
-
-first_digit(x)
 
 last_digit(x)
 
@@ -39,13 +36,4 @@ Helpers to construct the Luhn algorithm check
 \examples{
 x <- examples()
 check_luhn(x)
-head(x, 20)
-
-id <- last_digit(x)
-head(id, 20)
-
-x <- check_digit(x)
-head(x, 20)
-
-all(head(id, 20) == head(x, 20))
 }
