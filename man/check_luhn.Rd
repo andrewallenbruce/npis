@@ -34,6 +34,5 @@ An integer vector
 Helpers to construct the Luhn algorithm check
 }
 \examples{
-x <- examples()
-check_luhn(x)
+try(check_luhn(generate(100)))
 }
