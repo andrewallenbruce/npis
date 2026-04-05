@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">npis</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9018</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9019</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -82,8 +82,16 @@ mentioned in error messages as the source of the error. See the
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu">examples</span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu">check_luhn</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">check_luhn</span><span class="op">(</span><span class="fu"><a href="generate.html">generate</a></span><span class="op">(</span><span class="fl">100</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Error in eval(expr, envir) : </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   An <span style="color: #0000BB;">&lt;npi&gt;</span> must pass the Luhn check.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> <span style="color: #00BB00;">90</span> Invalid locations.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> • 1645358447</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> • 1164415312</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> • 1856458594</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> • 1103750512</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> • 1081470292</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> and more...</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

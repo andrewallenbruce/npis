@@ -1,5 +1,10 @@
 # Changelog
 
+## npis 0.0.0.9019 (2026-04-04)
+
+- small changes to
+  [`check_luhn()`](https://andrewallenbruce.github.io/npis/reference/check_luhn.md)
+
 ## npis 0.0.0.9018 (2026-04-04)
 
 - refactored luhn check

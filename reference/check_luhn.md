@@ -40,6 +40,14 @@ An integer vector
 ## Examples
 
 ``` r
-x <- examples()
-check_luhn(x)
+try(check_luhn(generate(100)))
+#> Error in eval(expr, envir) : 
+#>   An <npi> must pass the Luhn check.
+#> ✖ 90 Invalid locations.
+#> • 1645358447
+#> • 1164415312
+#> • 1856458594
+#> • 1103750512
+#> • 1081470292
+#> and more...
 ```
