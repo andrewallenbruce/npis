@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# npis 0.0.0.9019 (2026-04-04)
+
+* small changes to `check_luhn()`
+
+
 # npis 0.0.0.9018 (2026-04-04)
 
 * refactored luhn check
