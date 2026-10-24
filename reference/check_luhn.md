@@ -11,7 +11,7 @@ check_digit(x)
 
 last_digit(x)
 
-examples()
+example_()
 ```
 
 ## Arguments

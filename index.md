@@ -8,6 +8,7 @@ You can install the development version of npis from
 [GitHub](https://github.com/) with:
 
 ``` r
+
 # install.packages("pak")
 pak::pak("andrewallenbruce/npis")
 ```
