@@ -4,7 +4,7 @@
 \alias{check_luhn}
 \alias{check_digit}
 \alias{last_digit}
-\alias{examples}
+\alias{example_}
 \title{Luhn Check}
 \usage{
 check_luhn(x, arg = rlang::caller_arg(x), call = rlang::caller_env())
@@ -13,7 +13,7 @@ check_digit(x)
 
 last_digit(x)
 
-examples()
+example_()
 }
 \arguments{
 \item{x}{a vector}

@@ -10,7 +10,7 @@ methods::setOldClass(c("npi", "vctrs_vctr"))
 #' @param ... Passed on to methods.
 #' @returns An S3 vector of class `<npi>`
 #' @examples
-#' x <- examples()[1:10]
+#' x <- example_()[1:10]
 #' x
 #' is_npi(x)
 #'
@@ -25,22 +25,22 @@ methods::setOldClass(c("npi", "vctrs_vctr"))
 #' as_npi(c("1234567893", 1234567893, 1234567893L, NA_character_))
 #' @export
 npi <- function(x = integer()) {
-  x <- vec_cast(x, integer())
-  vec_assert(x, integer())
-  validate_npi(x)
+  x <- vctrs::vec_cast(x, integer())
+  # validate_npi(x)
   new_npi(x)
 }
 
 #' @export
 #' @rdname npi
 new_npi <- function(x = integer()) {
-  new_vctr(x, class = "npi")
+  vctrs::vec_assert(x, integer())
+  vctrs::new_vctr(x, class = "npi")
 }
 
 #' @export
 #' @rdname npi
 validate_npi <- function(x) {
-  x <- collapse::na_rm(x)
+  # x <- collapse::na_rm(x)
   check_ndigits(x)
   # check_first(x)
   check_luhn(x)
@@ -62,7 +62,7 @@ as_npi <- function(x, ...) {
 #' @export
 #' @rdname npi
 as_npi.default <- function(x, ...) {
-  vec_cast(x, new_npi())
+  vctrs::vec_cast(x, new_npi())
 }
 
 #' @export

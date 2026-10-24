@@ -43,7 +43,7 @@ An S3 vector of class \verb{<npi>}
 }
 }
 \examples{
-x <- examples()[1:10]
+x <- example_()[1:10]
 x
 is_npi(x)
 

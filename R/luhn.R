@@ -62,6 +62,7 @@ last_digit <- function(x) {
 
 #' @noRd
 payload <- function(x) {
+  # all but last digit
   x %/% 10L
 }
 
@@ -80,6 +81,6 @@ explode <- function(x) {
 
 #' @export
 #' @rdname check_luhn
-examples <- function() {
+example_ <- function() {
   get_pin("examples")
 }

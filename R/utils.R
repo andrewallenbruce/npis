@@ -15,10 +15,22 @@ generate <- function(x = 10L, prop = 0.1, syntactic = TRUE) {
   }
 
   if (syntactic || prop == 0L) {
-    return(as.integer(cheapr::paste_(1L, replicate(x, sample_payload()))))
+    return(
+      as.integer(
+        cheapr::paste_(
+          1L,
+          replicate(x, sample_payload())
+        )
+      )
+    )
   }
 
-  N <- as.integer(cheapr::paste_(1L, replicate(x, sample_payload())))
+  N <- as.integer(
+    cheapr::paste_(
+      1L,
+      replicate(x, sample_payload())
+    )
+  )
 
   idx <- cheapr::which_(
     N %in_%

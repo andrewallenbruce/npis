@@ -7,5 +7,11 @@ template:
   bslib:
     base_font: {google: "Inter"}
     heading_font: {google: "Recursive"}
-    code_font: {google: "IBM Plex Mono"}
+    code_font: {google: "JetBrains Mono"}
 
+home:
+  title: npis • National Provider Identifiers
+  description: >
+    An S3 vctrs class for National Provider Identifiers.
+  sidebar:
+    structure: [links, license, community, citation, authors, dev]

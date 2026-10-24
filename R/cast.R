@@ -14,7 +14,7 @@ vec_cast.npi <- function(x, to, ...) {
 #' @method vec_cast.npi default
 #' @export
 vec_cast.npi.default <- function(x, to, ...) {
-  vec_default_cast(x, to, ...)
+  vctrs::vec_default_cast(x, to, ...)
 }
 
 #' @method vec_cast.npi npi
@@ -32,5 +32,5 @@ vec_cast.npi.integer <- function(x, to, ...) {
 #' @method vec_cast.integer npi
 #' @export
 vec_cast.integer.npi <- function(x, to, ...) {
-  vec_data(x)
+  vctrs::vec_data(x)
 }

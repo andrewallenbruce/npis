@@ -1,7 +1,7 @@
 #' @method format npi
 #' @export
 format.npi <- function(x, ...) {
-  out <- formatC(vec_data(x), format = "d")
+  out <- formatC(vctrs::vec_data(x), format = "d")
   out[collapse::whichNA(x)] <- NA
   out
 }

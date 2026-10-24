@@ -13,7 +13,7 @@ vec_ptype2.npi <- function(x, y, ..., x_arg = "", y_arg = "") {
 #' @method vec_ptype2.npi default
 #' @export
 vec_ptype2.npi.default <- function(x, y, ..., x_arg = "", y_arg = "") {
-  vec_default_ptype2(x, y, x_arg = x_arg, y_arg = y_arg)
+  vctrs::vec_default_ptype2(x, y, x_arg = x_arg, y_arg = y_arg)
 }
 
 #' @method vec_ptype2.npi npi
