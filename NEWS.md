@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# npis 0.0.1 (2026-10-25)
+
+* Reorganize package
+
+
 # npis 0.0.0.9020 (2026-10-24)
 
 * upkeep 2026
