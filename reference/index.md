@@ -2,6 +2,9 @@
 
 ## All functions
 
+- [`as_npi()`](https://andrewallenbruce.github.io/npis/reference/as_npi.md)
+  : Cast to other types
+
 - [`check_luhn()`](https://andrewallenbruce.github.io/npis/reference/check_luhn.md)
   [`check_digit()`](https://andrewallenbruce.github.io/npis/reference/check_luhn.md)
   [`last_digit()`](https://andrewallenbruce.github.io/npis/reference/check_luhn.md)
@@ -12,17 +15,11 @@
   : Generate random NPIs
 
 - [`npi()`](https://andrewallenbruce.github.io/npis/reference/npi.md)
-  [`new_npi()`](https://andrewallenbruce.github.io/npis/reference/npi.md)
-  [`validate_npi()`](https://andrewallenbruce.github.io/npis/reference/npi.md)
   [`is_npi()`](https://andrewallenbruce.github.io/npis/reference/npi.md)
-  [`as_npi()`](https://andrewallenbruce.github.io/npis/reference/npi.md)
   :
 
-  Construct an `npi` object
+  `npi` vector
 
 - [`npis`](https://andrewallenbruce.github.io/npis/reference/npis-package.md)
   [`npis-package`](https://andrewallenbruce.github.io/npis/reference/npis-package.md)
   : npis: Vectorized NPIs for R
-
-- [`vec_ptype2(`*`<npi>`*`)`](https://andrewallenbruce.github.io/npis/reference/vec_ptype2.npi.md)
-  : Coercion

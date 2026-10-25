@@ -1,11 +1,16 @@
-# Convert a vector to an `npi` object
+# Cast to other types
 
-Converts a character or numeric vector of unvalidated NPIs into a
-validated `<npi>` vector.
+Cast to other types
 
 ## Usage
 
 ``` r
+as_npi(x, ...)
+
+# S3 method for class 'character'
+as_npi(x, ...)
+
+# S3 method for class 'double'
 as_npi(x, ...)
 ```
 
@@ -13,20 +18,23 @@ as_npi(x, ...)
 
 - x:
 
-  vector
+  description
 
 - ...:
 
-  These dots must be empty
+  description
 
 ## Value
 
-An S3 vector of class `<npi>`
+description
 
 ## Examples
 
 ``` r
-as_npi(c("1234567891", 1234567891, 1234567891L, NA_character_))
-#> <npi[4]>
-#> [1] 1234567891 1234567891 1234567891 <NA>      
+npi(1234567893 + 1L)
+#> <npi[1]>
+#> [1] 1234567894
+as_npi(c("1234567893", 1234567893.00, 1234567893, 1234567893L, NA))
+#> <npi[5]>
+#> [1] 1234567893 1234567893 1234567893 1234567893 <NA>      
 ```

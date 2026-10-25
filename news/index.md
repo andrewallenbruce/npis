@@ -1,5 +1,13 @@
 # Changelog
 
+## npis 0.0.1.9000 (2026-10-25)
+
+- Same as previous version.
+
+## npis 0.0.1 (2026-10-25)
+
+- Reorganize package
+
 ## npis 0.0.0.9020 (2026-10-24)
 
 - upkeep 2026
@@ -17,8 +25,7 @@
 
 - Use
   [`check_luhn()`](https://andrewallenbruce.github.io/npis/reference/check_luhn.md)
-  within
-  [`validate_npi()`](https://andrewallenbruce.github.io/npis/reference/npi.md)
+  within `validate_npi()`
 
 ## npis 0.0.0.9016 (2026-03-30)
 
