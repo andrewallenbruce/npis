@@ -2,58 +2,35 @@
 % Please edit documentation in R/npi.R
 \name{npi}
 \alias{npi}
-\alias{new_npi}
-\alias{validate_npi}
 \alias{is_npi}
-\alias{as_npi}
-\alias{as_npi.default}
-\alias{as_npi.character}
-\alias{as_npi.double}
-\title{Construct an \code{npi} object}
+\title{\code{npi} vector}
 \usage{
 npi(x = integer())
 
-new_npi(x = integer())
-
-validate_npi(x)
-
 is_npi(x)
-
-as_npi(x, ...)
-
-\method{as_npi}{default}(x, ...)
-
-\method{as_npi}{character}(x, ...)
-
-\method{as_npi}{double}(x, ...)
 }
 \arguments{
-\item{x}{a vector}
-
-\item{...}{Passed on to methods.}
+\item{x}{\itemize{
+\item For \code{npi()}: A numeric vector
+\item For \code{is_npi()}: An object to test.
+}}
 }
 \value{
-An S3 vector of class \verb{<npi>}
+An S3 vector of class \code{npi}
 }
 \description{
-\itemize{
-\item \code{new_npi()} is a low-level constructor that takes a vector.
-\item \code{npi()} constructs an npi object from a vector.
-\item \code{as_npi()} and \code{is_npi()} forward to \code{\link[vctrs:vec_cast]{vctrs::vec_cast()}} and \code{\link[=inherits]{inherits()}}, respectively.
-}
+Creates an integer vector that represents National Provider Identifiers
 }
 \examples{
-x <- example_()[1:10]
-x
+x <- example_()
+length(x)
 is_npi(x)
 
 x <- npi(x)
-x
+head(x)
 is_npi(x)
 
-data.frame(x)
+data.frame(x) |> head()
 
 tibble::tibble(x)
-
-as_npi(c("1234567893", 1234567893, 1234567893L, NA_character_))
 }

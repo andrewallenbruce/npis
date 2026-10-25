@@ -1,3 +1,23 @@
+#' @noRd
+n_digits <- function(x) {
+  as.integer(cheapr::ceiling_(cheapr::log10_(x)))
+}
+
+#' @noRd
+first_digit <- function(x) {
+  as.integer(x / (cheapr::pow_(10L, cheapr::log10_(x))))
+}
+
+#' @noRd
+all_10_digits <- function(x) {
+  collapse::allv(n_digits(x), 10L)
+}
+
+#' @noRd
+which_not_10 <- function(x) {
+  collapse::whichv(n_digits(x), 10L, invert = TRUE)
+}
+
 #' Generate random NPIs
 #'
 #' Creates an integer vector of unvalidated NPIs.
