@@ -11,6 +11,8 @@ check_digit(x)
 
 last_digit(x)
 
+luhn_check(x)
+
 example_()
 ```
 

@@ -8,6 +8,7 @@
 - [`check_luhn()`](https://andrewallenbruce.github.io/npis/reference/check_luhn.md)
   [`check_digit()`](https://andrewallenbruce.github.io/npis/reference/check_luhn.md)
   [`last_digit()`](https://andrewallenbruce.github.io/npis/reference/check_luhn.md)
+  [`luhn_check()`](https://andrewallenbruce.github.io/npis/reference/check_luhn.md)
   [`example_()`](https://andrewallenbruce.github.io/npis/reference/check_luhn.md)
   : Luhn Check
 
@@ -16,6 +17,7 @@
 
 - [`npi()`](https://andrewallenbruce.github.io/npis/reference/npi.md)
   [`is_npi()`](https://andrewallenbruce.github.io/npis/reference/npi.md)
+  [`n_invalid()`](https://andrewallenbruce.github.io/npis/reference/npi.md)
   :
 
   `npi` vector
