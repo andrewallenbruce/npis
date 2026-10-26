@@ -3,11 +3,14 @@
 \name{npi}
 \alias{npi}
 \alias{is_npi}
+\alias{n_invalid}
 \title{\code{npi} vector}
 \usage{
 npi(x = integer())
 
 is_npi(x)
+
+n_invalid(x)
 }
 \arguments{
 \item{x}{\itemize{
@@ -22,13 +25,14 @@ An S3 vector of class \code{npi}
 Creates an integer vector that represents National Provider Identifiers
 }
 \examples{
-x <- example_()
+x <- c(123456789, example_())
 length(x)
 is_npi(x)
 
 x <- npi(x)
 head(x)
 is_npi(x)
+n_invalid(x)
 
 data.frame(x) |> head()
 

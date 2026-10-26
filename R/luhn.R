@@ -33,33 +33,10 @@ check_luhn <- function(
   }
 }
 
-#' @export
-#' @rdname check_luhn
-check_digit <- function(x) {
-  # all input should be 10 digits
-  # x <- examples()
-  i <- c(1L, 3L, 5L, 7L, 9L)
-
-  x <- matrix(
-    explode(payload(x)),
-    nrow = cheapr::vector_length(x),
-    ncol = 9L,
-    byrow = TRUE
-  )
-
-  x[, i] <- x[, i] * 2L
-  x[, i] <- ifelse(x[, i] > 9L, x[, i] - 9L, x[, i])
-  x <- matrixStats::rowSums2(x) + 24L
-
-  as.integer(cheapr::ceiling_(x / 10L) * 10L - x)
+#' @noRd
+ndigits_check <- function(x) {
+  if (all_10_digits(x)) x else which_not_10(x)
 }
-
-#' @export
-#' @rdname check_luhn
-last_digit <- function(x) {
-  x %% 10L
-}
-
 #' @noRd
 payload <- function(x) {
   # all but last digit
@@ -77,6 +54,56 @@ explode <- function(x) {
       )
     )
   )
+}
+
+nine_ <- c(1L, 3L, 5L, 7L, 9L)
+
+#' @export
+#' @rdname check_luhn
+check_digit <- function(x) {
+  # all input should be 10 digits
+  # x <- example_()[1:5]
+  # x <- collapse::na_rm(x)
+
+  x <- matrix(
+    explode(payload(x)),
+    nrow = vctrs::vec_size(x),
+    ncol = 9L,
+    byrow = TRUE
+  )
+
+  x[, nine_] <- x[, nine_] * 2L
+
+  x[, nine_] <- cheapr::if_else_(
+    x[, nine_] > 9L,
+    x[, nine_] - 9L,
+    x[, nine_]
+  )
+
+  x <- matrixStats::rowSums2(x) + 24L
+  as.integer(cheapr::ceiling_(x / 10L) * 10L - x)
+
+  # cheapr::subtract_(cheapr::multiply_(cheapr::ceiling_(cheapr::divide_(x, 10L)), 10L), x)
+  # as.integer(cheapr::ceiling_(x %/=% 10L) %*=% 10L %-=% x)
+}
+
+#' @export
+#' @rdname check_luhn
+last_digit <- function(x) {
+  x %% 10L
+}
+
+#' @export
+#' @rdname check_luhn
+luhn_check <- function(x) {
+  i <- vctrs::vec_compare(last_digit(x), check_digit(x), na_equal = TRUE)
+  if (collapse::allv(i, 0L)) {
+    return(x)
+  } else {
+    x[i %!=% 0L] <- NA_integer_
+    x
+    # collapse::setv(x, collapse::whichv(i, 0L, TRUE), NA_integer_)
+  }
 }
 
 #' @export

@@ -4,6 +4,7 @@
 \alias{check_luhn}
 \alias{check_digit}
 \alias{last_digit}
+\alias{luhn_check}
 \alias{example_}
 \title{Luhn Check}
 \usage{
@@ -12,6 +13,8 @@ check_luhn(x, arg = rlang::caller_arg(x), call = rlang::caller_env())
 check_digit(x)
 
 last_digit(x)
+
+luhn_check(x)
 
 example_()
 }

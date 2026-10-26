@@ -7,6 +7,7 @@ S3method(vec_cast,integer.npi)
 S3method(vec_cast,npi.integer)
 S3method(vec_cast,npi.npi)
 S3method(vec_ptype2,integer.npi)
+S3method(vec_ptype2,npi.integer)
 S3method(vec_ptype2,npi.npi)
 S3method(vec_ptype_abbr,npi)
 S3method(vec_ptype_full,npi)
@@ -17,6 +18,8 @@ export(example_)
 export(generate)
 export(is_npi)
 export(last_digit)
+export(luhn_check)
+export(n_invalid)
 export(new_npi)
 export(npi)
 import(rlang)
@@ -28,6 +31,10 @@ importFrom(cheapr,
 importFrom(collapse,
   "%!=%",
   "%!iin%",
+  "%*=%",
+  "%+=%",
+  "%-=%",
+  "%/=%",
   "%=%",
   "%==%",
   "%iin%",

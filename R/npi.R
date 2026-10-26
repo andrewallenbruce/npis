@@ -9,13 +9,14 @@ methods::setOldClass(c("npi", "vctrs_vctr"))
 #'  * For `is_npi()`: An object to test.
 #' @returns An S3 vector of class `npi`
 #' @examples
-#' x <- example_()
+#' x <- c(123456789, example_())
 #' length(x)
 #' is_npi(x)
 #'
 #' x <- npi(x)
 #' head(x)
 #' is_npi(x)
+#' n_invalid(x)
 #'
 #' data.frame(x) |> head()
 #'
@@ -25,8 +26,10 @@ npi <- function(x = integer()) {
   x <- vctrs::vec_cast(x, integer())
 
   if (!all_10_digits(x)) {
-    x[which_not_10(x)] <- NA_integer_
+    x[which_not_10(x)] <- 1000000000L
   }
+
+  x <- luhn_check(x)
 
   new_npi(x)
 }
@@ -37,6 +40,16 @@ is_npi <- function(x) {
   inherits(x, "npi")
 }
 
+#' @export
+#' @rdname npi
+n_invalid <- function(x) {
+  if (inherits(x, "npi") && anyNA(x)) {
+    length(collapse::whichNA(x))
+  } else {
+    0L
+  }
+}
+
 #' Low-level Constructor
 #' @param x An integer vector
 #' @inheritParams rlang::args_error_context
@@ -45,18 +58,12 @@ is_npi <- function(x) {
 new_npi <- function(x = integer(), call = rlang::current_env()) {
   if (!is.integer(x)) {
     cli::cli_abort(
-      "{.arg x} must be a list, not {.obj_type_friendly {x}}.",
+      "{.arg x} must be an integer, not {.obj_type_friendly {x}}.",
       call = call
     )
   }
   vctrs::new_vctr(x, class = "npi")
 }
-
-#' @export
-vec_ptype_abbr.npi <- function(x, ...) "npi"
-
-#' @export
-vec_ptype_full.npi <- function(x, ...) "npi"
 
 #' @export
 format.npi <- function(x, ...) {
@@ -65,25 +72,29 @@ format.npi <- function(x, ...) {
   out
 }
 
+# === vec_ptype_abbr
 #' @export
-vec_ptype2.npi.npi <- function(x, y, ...) {
-  new_npi()
-}
+vec_ptype_abbr.npi <- function(x, ...) "npi"
 
 #' @export
-vec_ptype2.integer.npi <- function(x, y, ...) {
-  integer()
-}
+vec_ptype_full.npi <- function(x, ...) "npi"
+
+# === vec_ptype2
+#' @export
+vec_ptype2.npi.npi <- function(x, y, ...) new_npi()
 
 #' @export
-vec_cast.npi.npi <- function(x, to, ...) {
-  x
-}
+vec_ptype2.integer.npi <- function(x, y, ...) new_npi()
 
 #' @export
-vec_cast.npi.integer <- function(x, to, ...) {
-  npi(x)
-}
+vec_ptype2.npi.integer <- function(x, y, ...) new_npi()
+
+# === vec_cast
+#' @export
+vec_cast.npi.npi <- function(x, to, ...) x
+
+#' @export
+vec_cast.npi.integer <- function(x, to, ...) npi(x)
 
 #' @export
 vec_cast.integer.npi <- function(x, to, ...) {
