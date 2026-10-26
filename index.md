@@ -1,11 +1,8 @@
-# npis
-
-The goal of npis is to …
+# **npis**
 
 ## Installation
 
-You can install the development version of npis from
-[GitHub](https://github.com/) with:
+You can install `npis` from [GitHub](https://github.com/) with:
 
 ``` r
 
@@ -13,9 +10,15 @@ You can install the development version of npis from
 pak::pak("andrewallenbruce/npis")
 ```
 
-## Code of Conduct
+### ⚖️ Code of Conduct
 
-Please note that the npis project is released with a [Contributor Code
-of
-Conduct](https://contributor-covenant.org/version/2/1/CODE_OF_CONDUCT.html).
+Please note that the **`npis`** project is released with a [Contributor
+Code of
+Conduct](https://andrewallenbruce.github.io/npis/CODE_OF_CONDUCT.html).
 By contributing to this project, you agree to abide by its terms.
+
+### 🏛️ Governance
+
+This project is primarily maintained by [Andrew
+Bruce](https://github.com/andrewallenbruce). Other authors may
+occasionally assist with some of these duties.
