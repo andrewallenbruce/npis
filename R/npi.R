@@ -9,18 +9,18 @@ methods::setOldClass(c("npi", "vctrs_vctr"))
 #'  * For `is_npi()`: An object to test.
 #' @returns An S3 vector of class `npi`
 #' @examples
-#' x <- c(123456789, example_())
-#' length(x)
-#' is_npi(x)
-#'
-#' x <- npi(x)
-#' head(x)
-#' is_npi(x)
-#' n_invalid(x)
-#'
-#' data.frame(x) |> head()
-#'
-#' tibble::tibble(x)
+#'  x <- npi(c(123456789, example_(), generate(1000L)))
+#'  head(sort.int(x), 30L)
+#'  is_npi(x)
+#'  n_invalid(x)
+#'  x <- tibble::tibble(x = sort.int(x))
+#'  x
+#'  cheapr::counts(x$x, TRUE) |>
+#'    collapse::roworderv("count", decreasing = TRUE) |>
+#'    collapse::qTBL() |>
+#'    # collapse::sbt(count > 4L) |>
+#'    _$count |>
+#'    stem(scale = 0.7, width = 40)
 #' @export
 npi <- function(x = integer()) {
   x <- vctrs::vec_cast(x, integer())
@@ -65,19 +65,31 @@ new_npi <- function(x = integer(), call = rlang::current_env()) {
   vctrs::new_vctr(x, class = "npi")
 }
 
-#' @export
-format.npi <- function(x, ...) {
-  out <- formatC(vctrs::vec_data(x), format = "d")
-  out[collapse::whichNA(x)] <- NA
-  out
-}
-
 # === vec_ptype_abbr
 #' @export
 vec_ptype_abbr.npi <- function(x, ...) "npi"
 
 #' @export
 vec_ptype_full.npi <- function(x, ...) "npi"
+
+#' @export
+format.npi <- function(x, ...) {
+  if (length(x) == 0) {
+    return(integer())
+  }
+  out <- formatC(vctrs::vec_data(x), format = "d")
+  out[collapse::whichNA(x)] <- NA
+  out
+}
+
+#' @export
+obj_print_data.npi <- function(x, max = 54L, width = 70L, ...) {
+  if (length(x) == 0) {
+    return()
+  }
+  print(format(x), quote = FALSE, max = max, width = width, ...)
+  invisible(x)
+}
 
 # === vec_ptype2
 #' @export

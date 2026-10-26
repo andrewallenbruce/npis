@@ -3,6 +3,7 @@
 S3method(as_npi,character)
 S3method(as_npi,double)
 S3method(format,npi)
+S3method(obj_print_data,npi)
 S3method(vec_cast,integer.npi)
 S3method(vec_cast,npi.integer)
 S3method(vec_cast,npi.npi)

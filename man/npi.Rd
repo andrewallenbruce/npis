@@ -25,16 +25,16 @@ An S3 vector of class \code{npi}
 Creates an integer vector that represents National Provider Identifiers
 }
 \examples{
-x <- c(123456789, example_())
-length(x)
-is_npi(x)
-
-x <- npi(x)
-head(x)
-is_npi(x)
-n_invalid(x)
-
-data.frame(x) |> head()
-
-tibble::tibble(x)
+ x <- npi(c(123456789, example_(), generate(1000L)))
+ head(sort.int(x), 30L)
+ is_npi(x)
+ n_invalid(x)
+ x <- tibble::tibble(x = sort.int(x))
+ x
+ cheapr::counts(x$x, TRUE) |>
+   collapse::roworderv("count", decreasing = TRUE) |>
+   collapse::qTBL() |>
+   # collapse::sbt(count > 4L) |>
+   _$count |>
+   stem(scale = 0.7, width = 40)
 }
