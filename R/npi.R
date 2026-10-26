@@ -9,18 +9,11 @@ methods::setOldClass(c("npi", "vctrs_vctr"))
 #'  * For `is_npi()`: An object to test.
 #' @returns An S3 vector of class `npi`
 #' @examples
-#'  x <- npi(c(123456789, example_(), generate(1000L)))
-#'  head(sort.int(x), 30L)
-#'  is_npi(x)
-#'  n_invalid(x)
-#'  x <- tibble::tibble(x = sort.int(x))
-#'  x
-#'  cheapr::counts(x$x, TRUE) |>
-#'    collapse::roworderv("count", decreasing = TRUE) |>
-#'    collapse::qTBL() |>
-#'    # collapse::sbt(count > 4L) |>
-#'    _$count |>
-#'    stem(scale = 0.7, width = 40)
+#' x <- npi(c(123456789, npis::examples, generate(1000L)))
+#' head(sort.int(x), 30L)
+#' is_npi(x)
+#' n_invalid(x)
+#' tibble::tibble(x = sort.int(x))
 #' @export
 npi <- function(x = integer()) {
   x <- vctrs::vec_cast(x, integer())

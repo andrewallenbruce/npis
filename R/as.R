@@ -4,7 +4,6 @@
 #' @param ... description
 #' @returns description
 #' @examples
-#' npi(1234567893 + 1L)
 #' as_npi(c("1234567893", 1234567893.00, 1234567893, 1234567893L, NA))
 #' @export
 as_npi <- function(x, ...) {

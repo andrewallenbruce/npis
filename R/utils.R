@@ -1,23 +1,3 @@
-#' @noRd
-n_digits <- function(x) {
-  as.integer(cheapr::ceiling_(cheapr::log10_(x)))
-}
-
-#' @noRd
-first_digit <- function(x) {
-  as.integer(x / (cheapr::pow_(10L, cheapr::log10_(x))))
-}
-
-#' @noRd
-all_10_digits <- function(x) {
-  collapse::allv(n_digits(x), 10L)
-}
-
-#' @noRd
-which_not_10 <- function(x) {
-  collapse::whichv(n_digits(x), 10L, invert = TRUE)
-}
-
 #' Generate random NPIs
 #'
 #' Creates an integer vector of unvalidated NPIs.
@@ -73,31 +53,4 @@ sample_payload <- function() {
 #' @noRd
 unlist_ <- function(x) {
   unlist(x, use.names = FALSE)
-}
-
-#' @noRd
-mount_board <- function(pkg = "npis", source = c("local", "remote")) {
-  switch(
-    match.arg(source),
-    local = pins::board_folder(fs::path_package(pkg, "extdata/pins")),
-    remote = pins::board_url(paste0(
-      "https://raw.githubusercontent.com/",
-      "andrewallenbruce/",
-      pkg,
-      "/master/inst/extdata/pins/"
-    ))
-  )
-}
-
-#' @noRd
-list_pins <- function(...) {
-  board <- mount_board(...)
-  pins::pin_list(board)
-}
-
-#' @noRd
-get_pin <- function(pin, ...) {
-  board <- mount_board(...)
-  pin <- rlang::arg_match0(pin, list_pins())
-  pins::pin_read(board, pin)
 }
