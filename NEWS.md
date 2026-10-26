@@ -4,19 +4,10 @@
 
 * removed pins + dependencies
 * added example npis as internal dataset
-
-
-# npis 0.0.1.9001 (2026-10-25)
-
 * ndigit/luhn checks working correctly
 * basic coercion & casting implemented
 
-
-# npis 0.0.1.9000 (2026-10-25)
-
-- Same as previous version.
-
-## npis 0.0.1 (2026-10-25)
+# npis 0.0.1 (2026-10-25)
 
 * Reorganize package
 
