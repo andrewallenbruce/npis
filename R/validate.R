@@ -29,7 +29,7 @@ nine_ <- c(1L, 3L, 5L, 7L, 9L)
 #' @param x an integer vector
 #' @returns An integer vector
 #' @examples
-#' luhn_check(generate(1000L)) |> length()
+#' luhn_check(generate())
 #' @export
 luhn_check <- function(x) {
   i <- vctrs::vec_compare(last_digit(x), check_digit(x), na_equal = TRUE)
