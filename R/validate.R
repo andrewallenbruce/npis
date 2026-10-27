@@ -32,14 +32,14 @@ nine_ <- c(1L, 3L, 5L, 7L, 9L)
 #' luhn_check(generate())
 #' @export
 luhn_check <- function(x) {
-  i <- vctrs::vec_compare(last_digit(x), check_digit(x), na_equal = TRUE)
-  if (collapse::allv(i, 0L)) {
-    return(x)
-  } else {
+  original <- last_digit(x)
+  expected <- check_digit(x)
+
+  i <- vctrs::vec_compare(original, expected, na_equal = TRUE)
+  if (!collapse::allv(i, 0L)) {
     x[i %!=% 0L] <- NA_integer_
-    x
-    # collapse::setv(x, collapse::whichv(i, 0L, TRUE), NA_integer_)
   }
+  return(x)
 }
 
 # all but last digit
@@ -70,8 +70,6 @@ explode <- function(x) {
 #' @export
 #' @rdname luhn_check
 check_digit <- function(x) {
-  # x <- example_()[1:5]
-  # x <- collapse::na_rm(x)
 
   x <- matrix(
     explode(payload(x)),
@@ -90,13 +88,4 @@ check_digit <- function(x) {
 
   x <- matrixStats::rowSums2(x) + 24L
   as.integer(cheapr::ceiling_(x / 10L) * 10L - x)
-
-  # cheapr::subtract_(
-  # cheapr::multiply_(
-  # cheapr::ceiling_(
-  # cheapr::divide_(x, 10L)
-  # ), 10L), x)
-  #
-  # as.integer(
-  # cheapr::ceiling_(x %/=% 10L) %*=% 10L %-=% x)
 }

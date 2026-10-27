@@ -4,7 +4,7 @@
 #' @param ... description
 #' @returns description
 #' @examples
-#' as_npi(c("1234567893", 1234567893.00, 1234567893, 1234567893L, NA))
+#' as_npi(c("1234567893L", 1234567893.00, 1234567893, 1234567893L, NA))
 #' @export
 as_npi <- function(x, ...) {
   UseMethod("as_npi")
@@ -13,6 +13,7 @@ as_npi <- function(x, ...) {
 #' @export
 #' @rdname as_npi
 as_npi.character <- function(x, ...) {
+  if (collapse::anyv(has_letter(x), TRUE)) x[has_letter(x)] <- NA_character_
   x <- as.integer(x)
   npi(x)
 }
@@ -22,4 +23,14 @@ as_npi.character <- function(x, ...) {
 as_npi.double <- function(x, ...) {
   x <- as.integer(x)
   npi(x)
+}
+
+#' @noRd
+has_letter <- function(x) {
+  grepl("[A-Z]", x, ignore.case = TRUE, perl = TRUE)
+}
+
+#' @noRd
+is_numeric <- function(x) {
+  !has_letter(x)
 }
