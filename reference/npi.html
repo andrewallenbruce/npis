@@ -35,7 +35,7 @@
   <main id="main" class="col-md-9"><div class="page-header">
 
       <h1><code>npi</code> vector</h1>
-      <small class="dont-index">Source: <a href="https://github.com/andrewallenbruce/npis/blob/master/R/npi.R" class="external-link"><code>R/npi.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/andrewallenbruce/npis/blob/master/R/class-npi.R" class="external-link"><code>R/class-npi.R</code></a></small>
       <div class="d-none name"><code>npi.Rd</code></div>
     </div>
 
@@ -72,7 +72,7 @@
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu">npi</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">123456789</span>, <span class="fu">npis</span><span class="fu">::</span><span class="va"><a href="examples.html">examples</a></span>, <span class="fu"><a href="generate.html">generate</a></span><span class="op">(</span><span class="fl">1000L</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sort.html" class="external-link">sort.int</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>, <span class="fl">30L</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;npi[30]&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] 1002931438 1003014911 1003016304 1003017690 1003019563 1003019563</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] 1001750607 1003014911 1003016304 1003017690 1003019563 1003019563</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [7] 1003021783 1003021783 1003021783 1003028036 1003029398 1003036765</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [13] 1003039157 1003044157 1003052002 1003063397 1003065202 1003066143</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [19] 1003066143 1003066143 1003066143 1003066143 1003075623 1003077082</span>
@@ -80,12 +80,12 @@
 <span class="r-in"><span><span class="fu">is_npi</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] TRUE</span>
 <span class="r-in"><span><span class="fu">n_invalid</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 906</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 896</span>
 <span class="r-in"><span><span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sort.html" class="external-link">sort.int</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 27,010 × 1</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 27,020 × 1</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             x</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;npi&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 1002931438</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 1001750607</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 1003014911</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 1003016304</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 1003017690</span>
@@ -95,7 +95,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 1003021783</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 1003021783</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 1003028036</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 27,000 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 27,010 more rows</span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

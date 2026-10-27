@@ -23,6 +23,7 @@ An integer vector
 ## Examples
 
 ``` r
-luhn_check(generate(1000L)) |> length()
-#> [1] 1000
+luhn_check(generate())
+#>  [1]         NA         NA 1627303062         NA         NA         NA
+#>  [7]         NA         NA         NA         NA
 ```
