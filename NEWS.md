@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# npis 0.0.2.9001 (2026-10-27)
+
+* `as_npi` method for character vector
+
+
 # npis 0.0.2.9000 (2026-10-26)
 
 - Same as previous version.
