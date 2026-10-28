@@ -3,14 +3,11 @@
 \name{npi}
 \alias{npi}
 \alias{is_npi}
-\alias{n_invalid}
 \title{\code{npi} vector}
 \usage{
 npi(x = integer())
 
 is_npi(x)
-
-n_invalid(x)
 }
 \arguments{
 \item{x}{\itemize{

@@ -2,11 +2,14 @@
 % Please edit documentation in R/as.R
 \name{as_npi}
 \alias{as_npi}
+\alias{as_npi.integer}
 \alias{as_npi.character}
 \alias{as_npi.double}
 \title{Cast to other types}
 \usage{
 as_npi(x, ...)
+
+\method{as_npi}{integer}(x, ...)
 
 \method{as_npi}{character}(x, ...)
 

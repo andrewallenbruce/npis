@@ -12,8 +12,16 @@ as_npi <- function(x, ...) {
 
 #' @export
 #' @rdname as_npi
+as_npi.integer <- function(x, ...) {
+  npi(x)
+}
+
+#' @export
+#' @rdname as_npi
 as_npi.character <- function(x, ...) {
-  if (collapse::anyv(has_letter(x), TRUE)) x[has_letter(x)] <- NA_character_
+  if (collapse::anyv(has_letter(x), TRUE)) {
+    x[has_letter(x)] <- NA_character_
+  }
   x <- as.integer(x)
   npi(x)
 }

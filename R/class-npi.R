@@ -48,8 +48,10 @@ is_npi <- function(x) {
   inherits(x, "npi")
 }
 
+#' Count invalid NPIs
+#' @param x An integer vector
 #' @export
-#' @rdname npi
+#' @keywords internal
 n_invalid <- function(x) {
   if (inherits(x, "npi") && anyNA(x)) {
     length(collapse::whichNA(x))
@@ -57,5 +59,3 @@ n_invalid <- function(x) {
     0L
   }
 }
-
-

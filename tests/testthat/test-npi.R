@@ -9,20 +9,30 @@ test_that("Both constructors return `npi` class", {
 })
 
 test_that("Method symmetry for vec_c() is achieved", {
-  x = npi(1234567893)
-  y = 1234567893L
+  x <- npi(1234567893)
+  y <- 1234567893L
   expect_equal(vctrs::vec_c(x, y), vctrs::vec_c(y, x))
 })
 
-# https://vctrs.r-lib.org/articles/s3-vector.html#implementing-a-vctrs-s3-class-in-a-package
+test_that("Missing values are handled correctly", {
+  raw <- 1234567893L
+  valid <- npi(raw)
+  expect <- c(npi(raw), NA)
+  expect_equal(
+    c(
+      vctrs::vec_c(valid, NA),
+      vctrs::vec_c(valid, npi(1L))
+    ),
+    rep.int(expect, 2L)
+  )
+})
 
+# https://vctrs.r-lib.org/articles/s3-vector.html#implementing-a-vctrs-s3-class-in-a-package
 # Missing Values
-# vctrs::vec_c(1234567981L, npi(NA))
-# vctrs::vec_c(1234567981L, npi(1L))
-# vctrs::vec_c(npi(NA), 1234567981L)
-# vctrs::vec_c(npi(1L), 1234567981L)
+# vctrs::vec_c(npi(NA), 1234567983L)
+# vctrs::vec_c(npi(1L), 1234567983L)
 #
-# vctrs::vec_c(npi(1234567983), NA)
+# vctrs::vec_c(npi(1234567983L), NA)
 # vctrs::vec_c(npi(1234567981), npi(1L))
 # vctrs::vec_c(npi(NA), npi(1234567981))
 # vctrs::vec_c(npi(1L), npi(1234567981))
