@@ -1,5 +1,11 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# npis 0.0.2.9002 (2026-10-28)
+
+* temporary fix for incorrect calculation of number of digits in an integer
+* tests for `as_npi()`
+
+
 # npis 0.0.2.9001 (2026-10-27)
 
 * `as_npi` method for character vector
