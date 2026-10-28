@@ -4,9 +4,7 @@ library(npis)
 library(ggplot2)
 
 # First valid NPI = 1000000004
-
 seg <- cheapr::seq_(1e9L, 1e9L * 2L, by = 1e5L)
-diff(seg)
 segs <- cheapr::sequence_(1e5L, seg[1:5], as_list = TRUE)
 x <- which_valid(.subset2(segs, 1L))
 
@@ -15,6 +13,36 @@ x <- tibble::tibble(
   chk = last_digit(x),
   four = cumsum(chk == 4L)
 )
+
+vctrs::vec_unrep(x$four)$times |> cheapr::table_()
+
+x2 <- vctrs::vec_unrep(x$four) |>
+  tibble::tibble() |>
+  dplyr::mutate(group = cumsum(times == 19L))
+
+vctrs::vec_unrep(x2$group) |>
+  tibble::tibble()
+
+# This takes the whole non-zero integer at the end
+x <- tibble::tibble(
+  x = as.integer(substr(as.character(x), 2L, 10L)),
+)
+
+x$d <- c(NA_integer_, diff(x$x))
+
+unique(x$d)
+
+x |> print(n = 100)
+
+ggplot(x[1:1000, ], aes(x, d)) +
+  geom_point(
+    shape = 21,
+    # size = 2.5,
+    # stroke = 0.15,
+    colour = "red",
+    na.rm = TRUE
+  ) +
+  ggplot2::theme_minimal()
 
 vctrs::vec_count(x$chk)$key
 

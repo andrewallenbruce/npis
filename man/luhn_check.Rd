@@ -7,10 +7,15 @@
 \usage{
 luhn_check(x)
 
-check_digit(x)
+check_digit(x, call = rlang::current_env())
 }
 \arguments{
 \item{x}{an integer vector}
+
+\item{call}{The execution environment of a currently
+running function, e.g. \code{caller_env()}. The function will be
+mentioned in error messages as the source of the error. See the
+\code{call} argument of \code{\link[rlang:abort]{abort()}} for more information.}
 }
 \value{
 An integer vector

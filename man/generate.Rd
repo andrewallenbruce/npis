@@ -4,21 +4,25 @@
 \alias{generate}
 \title{Generate random NPIs}
 \usage{
-generate(x = 10L, prop = 0.1, syntactic = TRUE)
+generate(n = 10L, prop = 0.1, syntactic = TRUE, valid = FALSE)
 }
 \arguments{
-\item{x}{integer, number of NPIs to generate}
+\item{n}{\verb{<integer>}, default is \code{10}; number of NPIs to generate}
 
-\item{prop}{double; proportion of NAs to insert}
+\item{prop}{\verb{<double>}, between 0 and 1, default is \code{0.1}; proportion of NAs to insert}
 
-\item{syntactic}{boolean; technically valid NPIs}
+\item{syntactic}{\verb{<boolean>}, default is \code{TRUE}; syntactically valid output}
+
+\item{valid}{\verb{<boolean>}, default is \code{FALSE}; technically valid output}
 }
 \value{
-An integer vector of unvalidated NPIs
+A vector of random NPIs
 }
 \description{
-Creates an integer vector of unvalidated NPIs.
+Creates an integer vector of random NPIs.
 }
 \examples{
-generate(100, 0.2, FALSE)
+generate()
+generate(n = 100, prop = 0.2, syntactic = FALSE)
+generate(n = 100, valid = TRUE)
 }

@@ -7,15 +7,16 @@ methods::setOldClass(c("npi", "vctrs_vctr"))
 #' @param x
 #'  * For `npi()`: A numeric vector
 #'  * For `is_npi()`: An object to test.
+#' @param sort default is FALSE; sort output?
 #' @returns An S3 vector of class `npi`
 #' @examples
 #' x <- npi(c(123456789, npis::examples, generate(1000L)))
 #' head(sort.int(x), 30L)
 #' is_npi(x)
-#' n_invalid(x)
 #' tibble::tibble(x = sort.int(x))
 #' @export
-npi <- function(x = integer()) {
+npi <- function(x = integer(), sort = FALSE) {
+  check_bool(sort)
   x <- vctrs::vec_cast(x, integer())
 
   if (!all_10_digits(x)) {
@@ -23,6 +24,10 @@ npi <- function(x = integer()) {
   }
 
   x <- luhn_check(x)
+
+  if (sort) {
+    x <- sort.int(x)
+  }
 
   new_npi(x)
 }

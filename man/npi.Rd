@@ -5,7 +5,7 @@
 \alias{is_npi}
 \title{\code{npi} vector}
 \usage{
-npi(x = integer())
+npi(x = integer(), sort = FALSE)
 
 is_npi(x)
 }
@@ -14,6 +14,8 @@ is_npi(x)
 \item For \code{npi()}: A numeric vector
 \item For \code{is_npi()}: An object to test.
 }}
+
+\item{sort}{default is FALSE; sort output?}
 }
 \value{
 An S3 vector of class \code{npi}
@@ -25,6 +27,5 @@ Creates an integer vector that represents National Provider Identifiers
 x <- npi(c(123456789, npis::examples, generate(1000L)))
 head(sort.int(x), 30L)
 is_npi(x)
-n_invalid(x)
 tibble::tibble(x = sort.int(x))
 }
