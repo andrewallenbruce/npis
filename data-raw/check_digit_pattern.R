@@ -3,15 +3,37 @@ library(cheapr)
 library(npis)
 library(ggplot2)
 
-which_valid <- function(x, check_digit = FALSE) {
-  if (check_digit) {
-    collapse::ss(x, last_digit(x) %==% check_digit(x)) %% 1000000000L
-  } else {
-    collapse::ss(x, last_digit(x) %==% check_digit(x))
-  }
-}
+# First valid NPI = 1000000004
 
-x <- 1000000000:1000010000
+seg <- cheapr::seq_(1e9L, 1e9L * 2L, by = 1e5L)
+diff(seg)
+segs <- cheapr::sequence_(1e5L, seg[1:5], as_list = TRUE)
+x <- which_valid(.subset2(segs, 1L))
+
+# Points where the check digit == 4
+x <- tibble::tibble(
+  chk = last_digit(x),
+  four = cumsum(chk == 4L)
+)
+
+vctrs::vec_count(x$chk)$key
+
+x |> print(n = 50)
+
+fours = vctrs::vec_split(x$chk, x$four)$val
+cheapr::lengths_(fours) |> boxplot(horizontal = TRUE)
+
+chk <- which_valid(x, check = TRUE)
+four <- cheapr::which_val(chk, 4L)
+
+ex <- cheapr::new_df(x = seq(chk), y = cheapr::factor_(chk))
+ex |> ggauto::ggauto(x, y)
+
+diff.default(four) |> cheapr::as_factor() |> plot()
+
+
+vctrs::vec_split(chk, vctrs::vec_rep_each(four, 10000L / 1000L))
+length(four)
 # max(x) - min(x)
 # x <- x + 10000L
 

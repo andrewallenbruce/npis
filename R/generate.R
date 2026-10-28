@@ -10,47 +10,22 @@
 #' generate(100, 0.2, FALSE)
 #' @export
 generate <- function(x = 10L, prop = 0.1, syntactic = TRUE) {
-  if (prop > 1L) {
-    cli::cli_abort("{.arg prop} cannot be greater than 1.")
-  }
+  check_number_whole(x, min = 1)
+  check_number_decimal(prop, min = 0, max = 1)
+  check_bool(syntactic)
 
   if (syntactic || prop == 0L) {
-    return(
-      as.integer(
-        cheapr::paste_(
-          1L,
-          replicate(x, sample_payload())
-        )
-      )
-    )
+    N <- replicate(x, sample_payload())
+    return(as.integer(cheapr::paste_(1L, N)))
   }
-
-  N <- as.integer(
-    cheapr::paste_(
-      1L,
-      replicate(x, sample_payload())
-    )
-  )
-
-  idx <- cheapr::which_(
-    N %in_%
-      cheapr::sample_(
-        N,
-        cheapr::vector_length(N) %/% 10L
-      )
-  )
-
-  N <- cheapr::replace_(N, idx, cheapr::sset(N, idx) %/% 10L)
-
+  N <- replicate(x, sample_payload())
+  N <- as.integer(cheapr::paste_(1L, N))
+  i <- N %iin% cheapr::sample_(N, x %/% 10L)
+  N <- cheapr::replace_(N, i, cheapr::sset(N, i) %/% 10L)
   cheapr::na_insert(N, prop = prop)
 }
 
 #' @noRd
 sample_payload <- function() {
   cheapr::paste_(cheapr::sample_(0:9, 9L, TRUE), collapse = "")
-}
-
-#' @noRd
-unlist_ <- function(x) {
-  unlist(x, use.names = FALSE)
 }

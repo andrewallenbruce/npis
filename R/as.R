@@ -24,13 +24,3 @@ as_npi.double <- function(x, ...) {
   x <- as.integer(x)
   npi(x)
 }
-
-#' @noRd
-has_letter <- function(x) {
-  grepl("[A-Z]", x, ignore.case = TRUE, perl = TRUE)
-}
-
-#' @noRd
-is_numeric <- function(x) {
-  !has_letter(x)
-}
