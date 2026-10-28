@@ -7,15 +7,15 @@ methods::setOldClass(c("npi", "vctrs_vctr"))
 #' @param x
 #'  * For `npi()`: A numeric vector
 #'  * For `is_npi()`: An object to test.
-#' @param sort default is FALSE; sort output?
+#' @param sort default is FALSE; sort output
+#' @param na.rm default is FALSE; remove NA values
 #' @returns An S3 vector of class `npi`
 #' @examples
-#' x <- npi(c(123456789, npis::examples, generate(1000L)))
-#' head(sort.int(x), 30L)
+#' (x <- npi(generate(1000L), sort = TRUE, na.rm = TRUE))
 #' is_npi(x)
-#' tibble::tibble(x = sort.int(x))
+#' tibble::tibble(npi = x)
 #' @export
-npi <- function(x = integer(), sort = FALSE) {
+npi <- function(x = integer(), sort = FALSE, na.rm = FALSE) {
   check_bool(sort)
   x <- vctrs::vec_cast(x, integer())
 
@@ -25,8 +25,12 @@ npi <- function(x = integer(), sort = FALSE) {
 
   x <- luhn_check(x)
 
+  if (na.rm) {
+    x <- collapse::na_rm(x)
+  }
+
   if (sort) {
-    x <- sort.int(x)
+    x <- sort.int(x, na.last = TRUE)
   }
 
   new_npi(x)

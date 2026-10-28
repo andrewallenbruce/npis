@@ -27,8 +27,8 @@ vec_c(NA, npi(1000000050L), npi(1000000051L))
 vec_c(TRUE, npi(1000000050L))
 vec_c(npi(1000000051L), TRUE)
 
-x <- npi(generate(3))
-x[1:2] <- generate(2)
+x <- npi(generate(3, valid = TRUE))
+x[1:2] <- generate(2, valid = TRUE)
 x[[3]] <- 1060001869L
 x
 
@@ -43,7 +43,8 @@ c(factor(generate(1)), npi(generate(1)))
 n_digits(generate(100))
 
 
-x <- as_npi(npis:::examples())
+x <- as_npi(npis::examples)
+
 x
 
 as_npi(generate(100, syntactic = FALSE))

@@ -5,7 +5,7 @@
 \alias{is_npi}
 \title{\code{npi} vector}
 \usage{
-npi(x = integer(), sort = FALSE)
+npi(x = integer(), sort = FALSE, na.rm = FALSE)
 
 is_npi(x)
 }
@@ -15,7 +15,9 @@ is_npi(x)
 \item For \code{is_npi()}: An object to test.
 }}
 
-\item{sort}{default is FALSE; sort output?}
+\item{sort}{default is FALSE; sort output}
+
+\item{na.rm}{default is FALSE; remove NA values}
 }
 \value{
 An S3 vector of class \code{npi}
@@ -24,8 +26,7 @@ An S3 vector of class \code{npi}
 Creates an integer vector that represents National Provider Identifiers
 }
 \examples{
-x <- npi(c(123456789, npis::examples, generate(1000L)))
-head(sort.int(x), 30L)
+(x <- npi(generate(1000L), sort = TRUE, na.rm = TRUE))
 is_npi(x)
-tibble::tibble(x = sort.int(x))
+tibble::tibble(npi = x)
 }

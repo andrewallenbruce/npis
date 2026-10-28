@@ -3,29 +3,37 @@
 \name{as_npi}
 \alias{as_npi}
 \alias{as_npi.integer}
-\alias{as_npi.character}
 \alias{as_npi.double}
+\alias{as_npi.character}
 \title{Cast to other types}
 \usage{
-as_npi(x, ...)
+as_npi(x, sort = FALSE, na.rm = FALSE, ...)
 
-\method{as_npi}{integer}(x, ...)
+\method{as_npi}{integer}(x, sort = FALSE, na.rm = FALSE, ...)
 
-\method{as_npi}{character}(x, ...)
+\method{as_npi}{double}(x, sort = FALSE, na.rm = FALSE, ...)
 
-\method{as_npi}{double}(x, ...)
+\method{as_npi}{character}(x, sort = FALSE, na.rm = FALSE, ...)
 }
 \arguments{
-\item{x}{description}
+\item{x}{a scalar or vector to convert to the npi class}
 
-\item{...}{description}
+\item{sort}{default is FALSE; sort output}
+
+\item{na.rm}{default is FALSE; remove NA values}
+
+\item{...}{passed to methods}
 }
 \value{
-description
+An S3 vector of class \code{npi}
 }
 \description{
 Cast to other types
 }
 \examples{
-as_npi(c("1234567893L", 1234567893.00, 1234567893, 1234567893L, NA))
+as_npi(
+  c("1234567893L", 1234567893.00, 1234567893L, "1234567893", NA),
+  sort = TRUE,
+  na.rm = TRUE
+)
 }

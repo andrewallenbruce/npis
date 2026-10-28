@@ -1,6 +1,6 @@
 #' @noRd
 n_digits <- function(x) {
-  as.integer(cheapr::ceiling_(cheapr::log10_(x)))
+  as.integer(cheapr::floor_(cheapr::log10_(x)) + 1)
 }
 
 #' @noRd
