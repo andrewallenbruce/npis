@@ -7,6 +7,9 @@ Cast to other types
 ``` r
 as_npi(x, ...)
 
+# S3 method for class 'integer'
+as_npi(x, ...)
+
 # S3 method for class 'character'
 as_npi(x, ...)
 

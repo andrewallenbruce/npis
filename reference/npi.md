@@ -8,8 +8,6 @@ Creates an integer vector that represents National Provider Identifiers
 npi(x = integer())
 
 is_npi(x)
-
-n_invalid(x)
 ```
 
 ## Arguments

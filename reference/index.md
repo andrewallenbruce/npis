@@ -14,7 +14,6 @@
 
 - [`npi()`](https://andrewallenbruce.github.io/npis/reference/npi.md)
   [`is_npi()`](https://andrewallenbruce.github.io/npis/reference/npi.md)
-  [`n_invalid()`](https://andrewallenbruce.github.io/npis/reference/npi.md)
   :
 
   `npi` vector
