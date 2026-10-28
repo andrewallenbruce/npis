@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">npis</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.2.9002</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.2.9003</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,7 +45,7 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">npi</span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/integer.html" class="external-link">integer</a></span><span class="op">(</span><span class="op">)</span>, sort <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">npi</span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/integer.html" class="external-link">integer</a></span><span class="op">(</span><span class="op">)</span>, sort <span class="op">=</span> <span class="cn">FALSE</span>, na.rm <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">is_npi</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code></pre></div>
     </div>
@@ -61,7 +61,11 @@
 
 
 <dt id="arg-sort">sort<a class="anchor" aria-label="anchor" href="#arg-sort"></a></dt>
-<dd><p>default is FALSE; sort output?</p></dd>
+<dd><p>default is FALSE; sort output</p></dd>
+
+
+<dt id="arg-na-rm">na.rm<a class="anchor" aria-label="anchor" href="#arg-na-rm"></a></dt>
+<dd><p>default is FALSE; remove NA values</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -71,31 +75,35 @@
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu">npi</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">123456789</span>, <span class="fu">npis</span><span class="fu">::</span><span class="va"><a href="examples.html">examples</a></span>, <span class="fu"><a href="generate.html">generate</a></span><span class="op">(</span><span class="fl">1000L</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sort.html" class="external-link">sort.int</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>, <span class="fl">30L</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;npi[30]&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] 1001750607 1003014911 1003016304 1003017690 1003019563 1003019563</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [7] 1003021783 1003021783 1003021783 1003028036 1003029398 1003036765</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [13] 1003039157 1003044157 1003052002 1003063397 1003065202 1003066143</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [19] 1003066143 1003066143 1003066143 1003066143 1003075623 1003077082</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [25] 1003077140 1003077140 1003077140 1003077140 1003079625 1003079625</span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="op">(</span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu">npi</span><span class="op">(</span><span class="fu"><a href="generate.html">generate</a></span><span class="op">(</span><span class="fl">1000L</span><span class="op">)</span>, sort <span class="op">=</span> <span class="cn">TRUE</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;npi[103]&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] 1001750607 1004917716 1005373612 1016780326 1019057599 1030527166</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [7] 1036024432 1059692503 1063749232 1081699187 1083582365 1095407080</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [13] 1100131527 1104489624 1106035573 1110378415 1112265644 1130434677</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [19] 1140812235 1152974170 1156487666 1171989571 1193131343 1193383043</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [25] 1208461644 1212194280 1240931000 1255545950 1267878548 1286337773</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [31] 1290860703 1299687032 1307451082 1328131382 1337019487 1344036334</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [37] 1344408699 1352493120 1356729222 1358897035 1368574095 1383920562</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [43] 1391083460 1396367769 1399437940 1405868971 1418572362 1420945325</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [49] 1439896808 1441984493 1465601908 1468347152 1487861159 1506306442</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [ reached 'max' / getOption("max.print") -- omitted 49 entries ]</span>
 <span class="r-in"><span><span class="fu">is_npi</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] TRUE</span>
-<span class="r-in"><span><span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sort.html" class="external-link">sort.int</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 27,018 × 1</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             x</span>
+<span class="r-in"><span><span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span>npi <span class="op">=</span> <span class="va">x</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 103 × 1</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           npi</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;npi&gt;</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 1001750607</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 1003014911</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 1003016304</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 1003017690</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 1003019563</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 1003019563</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 1003021783</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 1003021783</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 1003021783</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 1003028036</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 27,008 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 1004917716</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 1005373612</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 1016780326</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 1019057599</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 1030527166</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 1036024432</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 1059692503</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 1063749232</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 1081699187</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 93 more rows</span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

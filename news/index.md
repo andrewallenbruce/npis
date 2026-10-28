@@ -1,5 +1,13 @@
 # Changelog
 
+## npis 0.0.2.9003 (2026-10-28)
+
+- added `sort` and `na.rm` to
+  [`npi()`](https://andrewallenbruce.github.io/npis/reference/npi.md)
+  and
+  [`as_npi()`](https://andrewallenbruce.github.io/npis/reference/as_npi.md)
+  methods
+
 ## npis 0.0.2.9002 (2026-10-28)
 
 - temporary fix for incorrect calculation of number of digits in an
