@@ -5,7 +5,7 @@ Creates an integer vector that represents National Provider Identifiers
 ## Usage
 
 ``` r
-npi(x = integer())
+npi(x = integer(), sort = FALSE)
 
 is_npi(x)
 ```
@@ -17,6 +17,10 @@ is_npi(x)
   - For `npi()`: A numeric vector
 
   - For `is_npi()`: An object to test.
+
+- sort:
+
+  default is FALSE; sort output?
 
 ## Value
 
@@ -35,10 +39,8 @@ head(sort.int(x), 30L)
 #> [25] 1003077140 1003077140 1003077140 1003077140 1003079625 1003079625
 is_npi(x)
 #> [1] TRUE
-n_invalid(x)
-#> [1] 896
 tibble::tibble(x = sort.int(x))
-#> # A tibble: 27,020 × 1
+#> # A tibble: 27,018 × 1
 #>             x
 #>         <npi>
 #>  1 1001750607
@@ -51,5 +53,5 @@ tibble::tibble(x = sort.int(x))
 #>  8 1003021783
 #>  9 1003021783
 #> 10 1003028036
-#> # ℹ 27,010 more rows
+#> # ℹ 27,008 more rows
 ```
