@@ -2,9 +2,6 @@
 
 ## All functions
 
-- [`as_npi()`](https://andrewallenbruce.github.io/npis/reference/as_npi.md)
-  : Cast to other types
-
 - [`generate()`](https://andrewallenbruce.github.io/npis/reference/generate.md)
   : Generate random NPIs
 

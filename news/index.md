@@ -11,23 +11,19 @@
 
 ## npis 0.0.2.9004 (2026-10-28)
 
-- added `default` and `npi` methods for
-  [`as_npi()`](https://andrewallenbruce.github.io/npis/reference/as_npi.md)
+- added `default` and `npi` methods for `as_npi()`
 
 ## npis 0.0.2.9003 (2026-10-28)
 
 - added `sort` and `na.rm` to
   [`npi()`](https://andrewallenbruce.github.io/npis/reference/npi.md)
-  and
-  [`as_npi()`](https://andrewallenbruce.github.io/npis/reference/as_npi.md)
-  methods
+  and `as_npi()` methods
 
 ## npis 0.0.2.9002 (2026-10-28)
 
 - temporary fix for incorrect calculation of number of digits in an
   integer
-- tests for
-  [`as_npi()`](https://andrewallenbruce.github.io/npis/reference/as_npi.md)
+- tests for `as_npi()`
 
 ## npis 0.0.2.9001 (2026-10-27)
 
