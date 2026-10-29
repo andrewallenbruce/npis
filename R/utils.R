@@ -23,3 +23,23 @@ n_invalid <- function(x) {
     0L
   }
 }
+
+#' @noRd
+which_valid_npi <- function(x) {
+  x <- collapse::ss(
+    x,
+    last_digit(x) %==% check_digit(x),
+    check = FALSE
+  )
+  collapse::funique(sort.int(x))
+}
+
+#' @noRd
+which_valid <- function(x, check = FALSE) {
+  x <- collapse::funique(sort.int(x))
+  x <- which_valid_npi(x)
+  if (!check) {
+    return(x)
+  }
+  last_digit(x)
+}

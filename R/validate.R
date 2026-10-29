@@ -88,23 +88,3 @@ check_digit <- function(x, call = rlang::current_env()) {
   x <- matrixStats::rowSums2(x) + 24L
   as.integer(cheapr::ceiling_(x / 10L) * 10L - x)
 }
-
-#' @noRd
-which_valid_npi <- function(x) {
-  x <- collapse::ss(
-    x,
-    last_digit(x) %==% check_digit(x),
-    check = FALSE
-  )
-  collapse::funique(sort.int(x))
-}
-
-#' @noRd
-which_valid <- function(x, check = FALSE) {
-  x <- collapse::funique(sort.int(x))
-  x <- which_valid_npi(x)
-  if (!check) {
-    return(x)
-  }
-  last_digit(x)
-}
