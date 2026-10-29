@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">npis</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.2.9003</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.2.9004</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,7 +35,7 @@
   <main id="main" class="col-md-9"><div class="page-header">
 
       <h1><code>npi</code> vector</h1>
-      <small class="dont-index">Source: <a href="https://github.com/andrewallenbruce/npis/blob/master/R/class-npi.R" class="external-link"><code>R/class-npi.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/andrewallenbruce/npis/blob/master/R/npi.R" class="external-link"><code>R/npi.R</code></a></small>
       <div class="d-none name"><code>npi.Rd</code></div>
     </div>
 
@@ -76,34 +76,35 @@
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="op">(</span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu">npi</span><span class="op">(</span><span class="fu"><a href="generate.html">generate</a></span><span class="op">(</span><span class="fl">1000L</span><span class="op">)</span>, sort <span class="op">=</span> <span class="cn">TRUE</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;npi[103]&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] 1001750607 1004917716 1005373612 1016780326 1019057599 1030527166</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [7] 1036024432 1059692503 1063749232 1081699187 1083582365 1095407080</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [13] 1100131527 1104489624 1106035573 1110378415 1112265644 1130434677</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [19] 1140812235 1152974170 1156487666 1171989571 1193131343 1193383043</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [25] 1208461644 1212194280 1240931000 1255545950 1267878548 1286337773</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [31] 1290860703 1299687032 1307451082 1328131382 1337019487 1344036334</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [37] 1344408699 1352493120 1356729222 1358897035 1368574095 1383920562</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [43] 1391083460 1396367769 1399437940 1405868971 1418572362 1420945325</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [49] 1439896808 1441984493 1465601908 1468347152 1487861159 1506306442</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [ reached 'max' / getOption("max.print") -- omitted 49 entries ]</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>`in_place` is `TRUE` but `x` may be shared by multiple objects</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;npi[108]&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] 1002409476 1008702189 1017230826 1020520692 1022450088 1039036045</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [7] 1043922131 1046441717 1054424191 1061606632 1071992402 1072504008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [13] 1078716077 1087703983 1088553312 1091496178 1103965103 1138696863</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [19] 1141343958 1145194431 1160722009 1180418919 1190689327 1229241249</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [25] 1239989415 1243122607 1251402768 1261740579 1267308058 1286048735</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [31] 1289863916 1295122570 1307516645 1326425901 1329292738 1333182750</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [37] 1333943649 1336765965 1338155603 1360365005 1361213915 1377132778</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [43] 1379597465 1382262305 1384734558 1386403624 1403741576 1418224782</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [49] 1433101155 1434864512 1442077834 1466572520 1467280867 1479638417</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [ reached 'max' / getOption("max.print") -- omitted 54 entries ]</span>
 <span class="r-in"><span><span class="fu">is_npi</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] TRUE</span>
 <span class="r-in"><span><span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span>npi <span class="op">=</span> <span class="va">x</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 103 × 1</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 108 × 1</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           npi</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;npi&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 1001750607</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 1004917716</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 1005373612</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 1016780326</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 1019057599</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 1030527166</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 1036024432</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 1059692503</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 1063749232</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 1081699187</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 93 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 1002409476</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 1008702189</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 1017230826</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 1020520692</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 1022450088</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 1039036045</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 1043922131</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 1046441717</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 1054424191</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 1061606632</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 98 more rows</span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

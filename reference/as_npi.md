@@ -5,16 +5,22 @@ Cast to other types
 ## Usage
 
 ``` r
-as_npi(x, sort = FALSE, na.rm = FALSE, ...)
+as_npi(x, ...)
+
+# Default S3 method
+as_npi(x, ...)
+
+# S3 method for class 'npi'
+as_npi(x, ...)
 
 # S3 method for class 'integer'
-as_npi(x, sort = FALSE, na.rm = FALSE, ...)
+as_npi(x, ...)
 
 # S3 method for class 'double'
-as_npi(x, sort = FALSE, na.rm = FALSE, ...)
+as_npi(x, ...)
 
 # S3 method for class 'character'
-as_npi(x, sort = FALSE, na.rm = FALSE, ...)
+as_npi(x, ...)
 ```
 
 ## Arguments
@@ -23,17 +29,10 @@ as_npi(x, sort = FALSE, na.rm = FALSE, ...)
 
   a scalar or vector to convert to the npi class
 
-- sort:
-
-  default is FALSE; sort output
-
-- na.rm:
-
-  default is FALSE; remove NA values
-
 - ...:
 
-  passed to methods
+  passed on to
+  [`npi()`](https://andrewallenbruce.github.io/npis/reference/npi.md)
 
 ## Value
 
@@ -43,10 +42,18 @@ An S3 vector of class `npi`
 
 ``` r
 as_npi(
-  c("1234567893L", 1234567893.00, 1234567893L, "1234567893", NA),
+  c(
+    1053404947,
+    1000000004L,
+    1000000004.00,
+    "1000000004L",
+    "1000000004"
+  ),
   sort = TRUE,
   na.rm = TRUE
 )
-#> <npi[3]>
-#> [1] 1234567893 1234567893 1234567893
+#> Warning: `in_place` is `TRUE` but `x` may be shared by multiple objects
+#> Warning: `in_place` is `TRUE` but `x` may be shared by multiple objects
+#> <npi[4]>
+#> [1] 1000000004 1000000004 1000000004 1053404947
 ```

@@ -31,7 +31,10 @@ An integer vector
 ## Examples
 
 ``` r
-luhn_check(generate())
-#>  [1]         NA         NA         NA         NA         NA         NA
-#>  [7] 1909961280         NA         NA 1381074289
+x <- generate(valid = TRUE)
+check_digit(x)
+#>  [1] 0 2 6 8 1 7 3 3 2 6
+luhn_check(x)
+#>  [1] 1750393690 1407888092 1720259476 1679516728 1093861601 1699755967
+#>  [7] 1063461523 1306395173 1275518532 1730499336
 ```

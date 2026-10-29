@@ -12,4 +12,4 @@ n_invalid(x)
 
 - x:
 
-  An integer vector
+  An `npi` vector

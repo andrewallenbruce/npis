@@ -1,5 +1,10 @@
 # Changelog
 
+## npis 0.0.2.9004 (2026-10-28)
+
+- added `default` and `npi` methods for
+  [`as_npi()`](https://andrewallenbruce.github.io/npis/reference/as_npi.md)
+
 ## npis 0.0.2.9003 (2026-10-28)
 
 - added `sort` and `na.rm` to
