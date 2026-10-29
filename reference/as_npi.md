@@ -52,8 +52,6 @@ as_npi(
   sort = TRUE,
   na.rm = TRUE
 )
-#> Warning: `in_place` is `TRUE` but `x` may be shared by multiple objects
-#> Warning: `in_place` is `TRUE` but `x` may be shared by multiple objects
 #> <npi[4]>
 #> [1] 1000000004 1000000004 1000000004 1053404947
 ```

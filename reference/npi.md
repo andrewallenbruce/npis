@@ -34,7 +34,6 @@ An S3 vector of class `npi`
 
 ``` r
 (x <- npi(generate(1000L), sort = TRUE, na.rm = TRUE))
-#> Warning: `in_place` is `TRUE` but `x` may be shared by multiple objects
 #> <npi[108]>
 #>  [1] 1002409476 1008702189 1017230826 1020520692 1022450088 1039036045
 #>  [7] 1043922131 1046441717 1054424191 1061606632 1071992402 1072504008
