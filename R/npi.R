@@ -16,8 +16,6 @@ methods::setOldClass(c("npi", "vctrs_vctr"))
 #' tibble::tibble(npi = x)
 #' @export
 npi <- function(x = integer(), sort = FALSE, na.rm = FALSE) {
-  check_bool(sort)
-  check_bool(na.rm)
   x <- vctrs::vec_cast(x, integer())
 
   if (!all_10_digits(x)) {
@@ -25,6 +23,9 @@ npi <- function(x = integer(), sort = FALSE, na.rm = FALSE) {
   }
 
   x <- luhn_check(x)
+
+  check_bool(sort)
+  check_bool(na.rm)
 
   if (na.rm) {
     x <- collapse::na_rm(x)

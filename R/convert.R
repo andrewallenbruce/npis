@@ -6,11 +6,12 @@
 #' @examples
 #' as_npi(
 #'   c(
-#'     1053404947,
-#'     1000000004L,
-#'     1000000004.00,
-#'     "1000000004L",
-#'     "1000000004"
+#'     1000000004,
+#'     npi(1000000012),
+#'     1000025001L,
+#'     1000050009.00,
+#'     "1000050041L",
+#'     "1000050058"
 #'   ),
 #'   sort = TRUE,
 #'   na.rm = TRUE
@@ -24,7 +25,6 @@ as_npi <- function(x, ...) {
 #' @rdname as_npi
 as_npi.default <- function(x, ...) {
   vctrs::vec_cast(x, new_npi())
-  # cli::cli_abort("No method found for class {.cls {class(x)}}")
 }
 
 #' @export
