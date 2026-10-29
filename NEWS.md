@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# npis 0.0.2.9005 (2026-10-28)
+
+* added methods for `vec_arith`, `vec_math` and `median`
+
+
 # npis 0.0.2.9004 (2026-10-28)
 
 * added `default` and `npi` methods for `as_npi()`
