@@ -1,5 +1,10 @@
 # Changelog
 
+## npis 0.0.2.9007 (2026-10-29)
+
+- replaced digit count methods with `ivs` range method
+- removed `as_npi` helpers
+
 ## npis 0.0.2.9006 (2026-10-29)
 
 - added `vec.arith.npi.npi`,
