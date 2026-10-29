@@ -47,7 +47,11 @@ as_npi.double <- function(x, ...) {
 #' @rdname as_npi
 as_npi.character <- function(x, ...) {
   if (any_(has_letter(x))) {
-    vctrs::vec_slice(x, has_letter(x)) <- NA_character_
+    x <- cheapr::replace_(
+      x,
+      has_letter(x),
+      NA_character_
+    )
   }
   x <- as.integer(x)
   npi(x, ...)

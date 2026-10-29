@@ -21,8 +21,7 @@ npi <- function(x = integer(), sort = FALSE, na.rm = FALSE) {
   x <- vctrs::vec_cast(x, integer())
 
   if (!all_10_digits(x)) {
-    cheapr::replace_(x, which_not_10(x), 1000000000L, in_place = TRUE)
-    # vctrs::vec_slice(x, which_not_10(x)) <- 1000000000L
+    x <- cheapr::replace_(x, which_not_10(x), 1000000000L)
   }
 
   x <- luhn_check(x)

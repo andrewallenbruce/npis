@@ -32,11 +32,10 @@ luhn_check <- function(x) {
   )
 
   if (!collapse::allv(compared, 0L)) {
-    cheapr::replace_(
+    x <- cheapr::replace_(
       x,
       compared %!=% 0L,
-      NA_integer_,
-      in_place = TRUE
+      NA_integer_
     )
   }
   return(x)
@@ -73,7 +72,10 @@ NINE_ <- c(1L, 3L, 5L, 7L, 9L)
 #' @rdname luhn_check
 check_digit <- function(x, call = rlang::current_env()) {
   if (!all_10_digits(x)) {
-    cli::cli_abort("All input must be 10 digits", call = call)
+    cli::cli_abort(
+      "All input must be 10 digits",
+      call = call
+    )
   }
 
   x <- matrix(
