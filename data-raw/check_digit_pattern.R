@@ -3,6 +3,15 @@ library(cheapr)
 library(npis)
 library(ggplot2)
 
+length(1000000004:1000100000) # 99997 -> 10000
+length(2000000000:1999900000) # 100001 -> 10000
+x <- npi(1000000004:1000100000, na.rm = TRUE)
+y <- npi(2000000000:1999900000, na.rm = TRUE)
+
+# Lower Bound = 1000000004
+# Upper Bound = 1999999992
+# Possible NPIs: 999,999,988
+
 # First valid NPI = 1000000004
 seg <- cheapr::seq_(1e9L, 1e9L * 2L, by = 1e5L)
 segs <- cheapr::sequence_(1e5L, seg[1:5], as_list = TRUE)
