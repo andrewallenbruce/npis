@@ -1,20 +1,12 @@
 #' @noRd
-n_digits <- function(x) {
-  as.integer(cheapr::floor_(cheapr::log10_(x)) + 1)
+in_range <- function(x) {
+  ivs::iv_between(x, ivs::iv(1000000004L, 1999999993L))
 }
 
 #' @noRd
-first_digit <- function(x) {
-  as.integer(x / (cheapr::pow_(10L, cheapr::log10_(x))))
+all_in_range <- function(x) {
+  collapse::allv(in_range(x), TRUE)
 }
-
-#' @noRd
-all_10_digits <- function(x) {
-  collapse::allv(n_digits2(x), 10L)
-}
-
-#' @noRd
-which_not_10 <- function(x) n_digits2(x) %!=% 10L
 
 #' Luhn Check
 #' @param x an integer vector
@@ -71,7 +63,7 @@ NINE_ <- c(1L, 3L, 5L, 7L, 9L)
 #' @export
 #' @rdname luhn_check
 check_digit <- function(x, call = rlang::current_env()) {
-  if (!all_10_digits(x)) {
+  if (!all_in_range(x)) {
     cli::cli_abort(
       "All input must be 10 digits",
       call = call
@@ -115,54 +107,4 @@ which_valid <- function(x, check = FALSE) {
     return(x)
   }
   last_digit(x)
-}
-
-#' @noRd
-n_digits2 <- function(x) {
-  purrr::map_int(x, number_digits)
-}
-
-#' @noRd
-number_digits <- function(x) {
-  if (cheapr::is_na(x)) {
-    return(NA_integer_)
-  }
-  if (x < 100000) {
-    if (x < 100) {
-      if (x < 10) {
-        return(1L)
-      } else {
-        return(2L)
-      }
-    } else {
-      if (x < 1000) {
-        return(3L)
-      } else {
-        if (x < 10000) {
-          return(4L)
-        } else {
-          return(5L)
-        }
-      }
-    }
-  } else {
-    if (x < 10000000) {
-      if (x < 1000000) {
-        return(6L)
-      } else {
-        return(7L)
-      }
-    } else {
-      if (x < 100000000) {
-        return(8L)
-      } else {
-        if (x < 1000000000) {
-          return(9L)
-        } else {
-          return(10L)
-        }
-      }
-    }
-  }
-  cli::cli_abort("Could not determine the number of digits in {.val {x}}")
 }

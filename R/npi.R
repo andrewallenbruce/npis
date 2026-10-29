@@ -18,8 +18,8 @@ methods::setOldClass(c("npi", "vctrs_vctr"))
 npi <- function(x = integer(), sort = FALSE, na.rm = FALSE) {
   x <- vctrs::vec_cast(x, integer())
 
-  if (!all_10_digits(x)) {
-    x <- cheapr::replace_(x, which_not_10(x), 1000000000L)
+  if (!all_in_range(x)) {
+    x <- cheapr::replace_(x, cheapr::which_(in_range(x), TRUE), 1000000005L)
   }
 
   x <- luhn_check(x)
