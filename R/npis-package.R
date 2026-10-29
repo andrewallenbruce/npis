@@ -44,6 +44,6 @@
 #' @importFrom methods setOldClass
 #' @importFrom cheapr %in_% %!in_%
 #' @importFrom collapse .c %iin% %!iin%
-#' @importFrom collapse %==% %!=% %=% %+=% %-=% %*=%  %/=%
+#' @importFrom collapse %==% %!=% %=% %+=% %-=% %*=% %/=%
 ## usethis namespace: end
 NULL

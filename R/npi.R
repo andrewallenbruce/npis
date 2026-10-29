@@ -17,10 +17,12 @@ methods::setOldClass(c("npi", "vctrs_vctr"))
 #' @export
 npi <- function(x = integer(), sort = FALSE, na.rm = FALSE) {
   check_bool(sort)
+  check_bool(na.rm)
   x <- vctrs::vec_cast(x, integer())
 
   if (!all_10_digits(x)) {
-    x[which_not_10(x)] <- 1000000000L
+    cheapr::replace_(x, which_not_10(x), 1000000000L, in_place = TRUE)
+    # vctrs::vec_slice(x, which_not_10(x)) <- 1000000000L
   }
 
   x <- luhn_check(x)
@@ -30,7 +32,11 @@ npi <- function(x = integer(), sort = FALSE, na.rm = FALSE) {
   }
 
   if (sort) {
-    x <- sort.int(x, na.last = TRUE)
+    x <- vctrs::vec_sort(
+      x,
+      na_value = "largest",
+      direction = "asc"
+    )
   }
 
   new_npi(x)
@@ -55,16 +61,4 @@ new_npi <- function(x = integer(), call = rlang::current_env()) {
 #' @rdname npi
 is_npi <- function(x) {
   inherits(x, "npi")
-}
-
-#' Count invalid NPIs
-#' @param x An integer vector
-#' @export
-#' @keywords internal
-n_invalid <- function(x) {
-  if (inherits(x, "npi") && anyNA(x)) {
-    length(collapse::whichNA(x))
-  } else {
-    0L
-  }
 }

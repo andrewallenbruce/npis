@@ -24,5 +24,7 @@ An integer vector
 Luhn Check
 }
 \examples{
-luhn_check(generate())
+x <- generate(valid = TRUE)
+check_digit(x)
+luhn_check(x)
 }

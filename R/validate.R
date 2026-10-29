@@ -14,23 +14,30 @@ all_10_digits <- function(x) {
 }
 
 #' @noRd
-which_not_10 <- function(x) {
-  collapse::whichv(n_digits2(x), 10L, invert = TRUE)
-}
+which_not_10 <- function(x) n_digits2(x) %!=% 10L
 
 #' Luhn Check
 #' @param x an integer vector
 #' @returns An integer vector
 #' @examples
-#' luhn_check(generate())
+#' x <- generate(valid = TRUE)
+#' check_digit(x)
+#' luhn_check(x)
 #' @export
 luhn_check <- function(x) {
-  original <- last_digit(x)
-  expected <- check_digit(x)
+  compared <- vctrs::vec_compare(
+    last_digit(x),
+    check_digit(x),
+    na_equal = TRUE
+  )
 
-  i <- vctrs::vec_compare(original, expected, na_equal = TRUE)
-  if (!collapse::allv(i, 0L)) {
-    x[i %!=% 0L] <- NA_integer_
+  if (!collapse::allv(compared, 0L)) {
+    cheapr::replace_(
+      x,
+      compared %!=% 0L,
+      NA_integer_,
+      in_place = TRUE
+    )
   }
   return(x)
 }
@@ -90,7 +97,11 @@ check_digit <- function(x, call = rlang::current_env()) {
 
 #' @noRd
 which_valid_npi <- function(x) {
-  x <- collapse::ss(x, last_digit(x) %==% check_digit(x), check = FALSE)
+  x <- collapse::ss(
+    x,
+    last_digit(x) %==% check_digit(x),
+    check = FALSE
+  )
   collapse::funique(sort.int(x))
 }
 
@@ -111,7 +122,7 @@ n_digits2 <- function(x) {
 
 #' @noRd
 number_digits <- function(x) {
-  if (is.na(x)) {
+  if (cheapr::is_na(x)) {
     return(NA_integer_)
   }
   if (x < 100000) {
