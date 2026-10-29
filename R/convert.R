@@ -23,7 +23,8 @@ as_npi <- function(x, ...) {
 #' @export
 #' @rdname as_npi
 as_npi.default <- function(x, ...) {
-  cli::cli_abort("No method found for class {.cls {class(x)}}")
+  vctrs::vec_cast(x, new_npi())
+  # cli::cli_abort("No method found for class {.cls {class(x)}}")
 }
 
 #' @export
