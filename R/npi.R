@@ -62,8 +62,10 @@ new_npi <- function(x = integer(), call = rlang::current_env()) {
   vctrs::new_vctr(x, class = "npi")
 }
 
+#' Is `x` an NPI?
+#' @param x An integer vector
 #' @export
-#' @rdname npi
+#' @keywords internal
 is_npi <- function(x) {
   inherits(x, "npi")
 }

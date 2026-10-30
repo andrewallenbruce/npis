@@ -2,12 +2,9 @@
 % Please edit documentation in R/npi.R
 \name{npi}
 \alias{npi}
-\alias{is_npi}
 \title{\code{npi} vector}
 \usage{
 npi(x = integer(), sort = FALSE, na.rm = FALSE)
-
-is_npi(x)
 }
 \arguments{
 \item{x}{\itemize{

@@ -4,7 +4,7 @@
 \alias{generate}
 \title{Generate random NPIs}
 \usage{
-generate(n = 10L, prop = 0.1, syntactic = TRUE, valid = FALSE)
+generate(n = 10L, prop = 0, syntactic = TRUE, valid = FALSE)
 }
 \arguments{
 \item{n}{\verb{<integer>}, default is \code{10}; number of NPIs to generate}
