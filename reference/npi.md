@@ -8,8 +8,6 @@ Creates an integer vector that represents National Provider Identifiers
 npi(x = integer(), sort = FALSE, na.rm = FALSE)
 
 is_npi(x)
-
-NA_npi_
 ```
 
 ## Arguments
@@ -64,4 +62,21 @@ tibble::tibble(npi = x)
 #>  9 1054424191
 #> 10 1061606632
 #> # ℹ 98 more rows
+summary(x)
+#> ╭ Summary ─────────────────╮
+#> │                          │
+#> │   Valid   108            │
+#> │   Unique  108            │
+#> │   Missing  0             │
+#> │                          │
+#> │   Min  1002409476        │
+#> │   Med  1481450979        │
+#> │   Avg  1473755888        │
+#> │   Max  1985342223        │
+#> │                          │
+#> │   RNG   982932747        │
+#> │   IQR   451734871.5      │
+#> │   SD    281455533        │
+#> │                          │
+#> ╰──────────────────────────╯
 ```

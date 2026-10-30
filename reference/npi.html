@@ -47,9 +47,7 @@
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">npi</span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/integer.html" class="external-link">integer</a></span><span class="op">(</span><span class="op">)</span>, sort <span class="op">=</span> <span class="cn">FALSE</span>, na.rm <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">is_npi</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">NA_npi_</span></span></code></pre></div>
+<span><span class="fu">is_npi</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -106,6 +104,23 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 1054424191</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 1061606632</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 98 more rows</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ╭ Summary ─────────────────╮</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> │                          │</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> │   Valid   108            │</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> │   Unique  108            │</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> │   Missing  0             │</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> │                          │</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> │   Min  1002409476        │</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> │   Med  1481450979        │</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> │   Avg  1473755888        │</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> │   Max  1985342223        │</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> │                          │</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> │   RNG   982932747        │</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> │   IQR   451734871.5      │</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> │   SD    281455533        │</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> │                          │</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ╰──────────────────────────╯</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
