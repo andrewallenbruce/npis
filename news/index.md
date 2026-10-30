@@ -1,5 +1,9 @@
 # Changelog
 
+## npis 0.0.2.9009 (2026-10-30)
+
+- switched to `rdz` package, much smaller storage footprint
+
 ## npis 0.0.2.9008 (2026-10-30)
 
 - parquet experiment
