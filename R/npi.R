@@ -14,6 +14,7 @@ methods::setOldClass(c("npi", "vctrs_vctr"))
 #' (x <- npi(generate(1000L), sort = TRUE, na.rm = TRUE))
 #' is_npi(x)
 #' tibble::tibble(npi = x)
+#' summary(x)
 #' @export
 npi <- function(x = integer(), sort = FALSE, na.rm = FALSE) {
   x <- vctrs::vec_cast(x, integer())
@@ -66,7 +67,3 @@ new_npi <- function(x = integer(), call = rlang::current_env()) {
 is_npi <- function(x) {
   inherits(x, "npi")
 }
-
-#' @export
-#' @rdname npi
-NA_npi_ <- new_npi(NA_integer_)

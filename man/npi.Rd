@@ -3,14 +3,11 @@
 \name{npi}
 \alias{npi}
 \alias{is_npi}
-\alias{NA_npi_}
 \title{\code{npi} vector}
 \usage{
 npi(x = integer(), sort = FALSE, na.rm = FALSE)
 
 is_npi(x)
-
-NA_npi_
 }
 \arguments{
 \item{x}{\itemize{
@@ -32,4 +29,5 @@ Creates an integer vector that represents National Provider Identifiers
 (x <- npi(generate(1000L), sort = TRUE, na.rm = TRUE))
 is_npi(x)
 tibble::tibble(npi = x)
+summary(x)
 }
