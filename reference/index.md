@@ -9,9 +9,7 @@
   [`check_digit()`](https://andrewallenbruce.github.io/npis/reference/luhn_check.md)
   : Luhn Check
 
-- [`npi()`](https://andrewallenbruce.github.io/npis/reference/npi.md)
-  [`is_npi()`](https://andrewallenbruce.github.io/npis/reference/npi.md)
-  :
+- [`npi()`](https://andrewallenbruce.github.io/npis/reference/npi.md) :
 
   `npi` vector
 

@@ -1,5 +1,10 @@
 # Changelog
 
+## npis 0.0.2.9008 (2026-10-30)
+
+- parquet experiment
+- summary method
+
 ## npis 0.0.2.9007 (2026-10-29)
 
 - replaced digit count methods with `ivs` range method

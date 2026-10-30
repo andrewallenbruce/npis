@@ -6,8 +6,6 @@ Creates an integer vector that represents National Provider Identifiers
 
 ``` r
 npi(x = integer(), sort = FALSE, na.rm = FALSE)
-
-is_npi(x)
 ```
 
 ## Arguments
@@ -16,7 +14,9 @@ is_npi(x)
 
   - For `npi()`: A numeric vector
 
-  - For `is_npi()`: An object to test.
+  - For
+    [`is_npi()`](https://andrewallenbruce.github.io/npis/reference/is_npi.md):
+    An object to test.
 
 - sort:
 
