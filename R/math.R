@@ -75,3 +75,9 @@ median.npi <- function(x, na.rm = FALSE, ...) {
 quantile.npi <- function(x, ...) {
   stats::quantile(vctrs::vec_data(x), ...)
 }
+
+#' @export
+#' @method summary npi
+summary.npi <- function(object, ...) {
+  summary(vctrs::vec_data(object), ...)
+}

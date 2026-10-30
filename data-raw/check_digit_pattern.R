@@ -3,11 +3,18 @@ library(cheapr)
 library(npis)
 library(ggplot2)
 
-length(1000000004:1000100000) # 99997 -> 10000
-length(1999999992:1999900000) # 99993 -> 10000
-x <- npi(1000000004:1000100000, na.rm = TRUE)
-y <- npi(1999999992:1999900000, na.rm = TRUE)
+LOWER = 1000000004L
+UPPER = 1999999992L
 
+length(LOWER:1000100000) # 99997 -> 10000
+length(UPPER:1999900000) # 99993 -> 10000
+x <- npi(LOWER:1000100000, na.rm = TRUE)
+y <- npi(UPPER:1999900000, na.rm = TRUE, sort = TRUE)
+z <- vctrs::vec_c(x, y)
+cheapr::overview(x %% 10L, digits = 3)[["numeric"]]
+cheapr::overview(y %% 10L, digits = 3)[["numeric"]]
+cheapr::overview(z %% 10L, digits = 3)[["numeric"]]
+collapse::descr(x %% 10L) |> as.data.frame()
 # Lower Bound = 1000000004
 # Upper Bound = 1999999992
 # Possible NPIs: 999,999,988

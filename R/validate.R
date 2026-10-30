@@ -1,6 +1,8 @@
+VALID_NPI_RANGE <- ivs::iv(1000000004L, 1999999993L)
+
 #' @noRd
 in_range <- function(x) {
-  ivs::iv_between(x, ivs::iv(1000000004L, 1999999993L))
+  ivs::iv_between(x, VALID_NPI_RANGE)
 }
 
 #' @noRd
@@ -13,6 +15,7 @@ all_in_range <- function(x) {
 #' @returns An integer vector
 #' @examples
 #' x <- generate(valid = TRUE)
+#' x %% 10L
 #' check_digit(x)
 #' luhn_check(x)
 #' @export
@@ -57,7 +60,12 @@ explode <- function(x) {
   )
 }
 
-NINE_ <- c(1L, 3L, 5L, 7L, 9L)
+#' @noRd
+minus_nine <- function(x) {
+  cheapr::if_else_(x > 9L, x - 9L, x)
+}
+
+mINDEX <- c(1L, 3L, 5L, 7L, 9L)
 
 #' @inheritParams rlang::args_error_context
 #' @export
@@ -71,20 +79,13 @@ check_digit <- function(x, call = rlang::current_env()) {
   }
 
   x <- matrix(
-    explode(payload(x)),
+    explode(x %/% 10L),
     nrow = vctrs::vec_size(x),
     ncol = 9L,
     byrow = TRUE
   )
 
-  x[, NINE_] <- x[, NINE_] * 2L
-
-  x[, NINE_] <- cheapr::if_else_(
-    x[, NINE_] > 9L,
-    x[, NINE_] - 9L,
-    x[, NINE_]
-  )
-
+  x[, mINDEX] <- minus_nine(x[, mINDEX] * 2L)
   x <- matrixStats::rowSums2(x) + 24L
   as.integer(cheapr::ceiling_(x / 10L) * 10L - x)
 }

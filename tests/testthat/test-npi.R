@@ -27,6 +27,8 @@ test_that("Missing values are handled correctly", {
   )
 })
 
+# vctrs::vec_ptype_show(new_npi(), integer(), double(), character())
+
 # https://vctrs.r-lib.org/articles/s3-vector.html#implementing-a-vctrs-s3-class-in-a-package
 # Missing Values
 # vctrs::vec_c(npi(NA), 1234567983L)
