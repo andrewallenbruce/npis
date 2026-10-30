@@ -32,6 +32,8 @@ An integer vector
 
 ``` r
 x <- generate(valid = TRUE)
+x %% 10L
+#>  [1] 0 2 6 8 1 7 3 3 2 6
 check_digit(x)
 #>  [1] 0 2 6 8 1 7 3 3 2 6
 luhn_check(x)

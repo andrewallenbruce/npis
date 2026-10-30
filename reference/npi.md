@@ -8,6 +8,8 @@ Creates an integer vector that represents National Provider Identifiers
 npi(x = integer(), sort = FALSE, na.rm = FALSE)
 
 is_npi(x)
+
+NA_npi_
 ```
 
 ## Arguments
