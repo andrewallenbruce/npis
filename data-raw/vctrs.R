@@ -38,13 +38,3 @@ c(npi(generate(1)), factor(generate(1)))
 
 # Incorrect
 c(factor(generate(1)), npi(generate(1)))
-
-
-n_digits(generate(100))
-
-
-x <- as_npi(npis::examples)
-
-x
-
-as_npi(generate(100, syntactic = FALSE))

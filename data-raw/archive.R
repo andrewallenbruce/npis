@@ -20,15 +20,14 @@ GROUP = cheapr::seq_(
   to = UPPER,
   by = LOWER %/% 1000L
 )
-
 GROUP[31:length(GROUP)] |> length() # 971 left
 
-file <- fs::path_wd("data-raw", "valid", ext = "parquet")
-file2 <- fs::path_wd("data-raw", "valid2", ext = "parquet")
-file3 <- fs::path_wd("data-raw", "valid3", ext = "parquet")
-nanoparquet::read_parquet_info(file2)
-nanoparquet::read_parquet(file2)
-
+file <- fs::path_wd("data-raw", "files", "valid", ext = "rdz")
+options(rdz.compress = 9, rdz.threads = 4)
+rdz::write_rdz(v, file)
+v <- rdz::read_rdz(file)
+rdz::rdz_info(file)
+rdz::rdz_schema(file)
 
 write_npi_parquet <- function(i) {
   seq.int(GROUP[i], GROUP[i + 3L]) |>
