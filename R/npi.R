@@ -66,3 +66,7 @@ new_npi <- function(x = integer(), call = rlang::current_env()) {
 is_npi <- function(x) {
   inherits(x, "npi")
 }
+
+#' @export
+#' @rdname npi
+NA_npi_ <- new_npi(NA_integer_)

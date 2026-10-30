@@ -26,6 +26,7 @@ vec_arith.npi.numeric <- function(op, x, y, ...) {
     "+" = ,
     "-" = ,
     "/" = ,
+    "*" = ,
     "%%" = ,
     "%/%" = vctrs::vec_arith_base(op, x, y),
     vctrs::stop_incompatible_op(op, x, y)
@@ -40,6 +41,7 @@ vec_arith.numeric.npi <- function(op, x, y, ...) {
     "+" = ,
     "-" = ,
     "/" = ,
+    "*" = ,
     "%%" = ,
     "%/%" = vctrs::vec_arith_base(op, x, y),
     vctrs::stop_incompatible_op(op, x, y)

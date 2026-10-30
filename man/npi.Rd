@@ -3,11 +3,14 @@
 \name{npi}
 \alias{npi}
 \alias{is_npi}
+\alias{NA_npi_}
 \title{\code{npi} vector}
 \usage{
 npi(x = integer(), sort = FALSE, na.rm = FALSE)
 
 is_npi(x)
+
+NA_npi_
 }
 \arguments{
 \item{x}{\itemize{

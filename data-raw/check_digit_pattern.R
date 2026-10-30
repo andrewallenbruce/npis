@@ -3,18 +3,34 @@ library(cheapr)
 library(npis)
 library(ggplot2)
 
-LOWER = 1000000004L
-UPPER = 1999999992L
+LOWER = 1000000000L
+UPPER = 2000000000L
+GROUP = cheapr::seq_(
+  from = LOWER,
+  to = UPPER,
+  by = LOWER %/% 1000L
+)
+diff(GROUP)
+# x <- npi(seq.int(GROUP[10], GROUP[13]), na.rm = TRUE)
+GROUP[31:length(GROUP)] |> length() # 971 left
 
-length(LOWER:1000100000) # 99997 -> 10000
-length(UPPER:1999900000) # 99993 -> 10000
-x <- npi(LOWER:1000100000, na.rm = TRUE)
-y <- npi(UPPER:1999900000, na.rm = TRUE, sort = TRUE)
-z <- vctrs::vec_c(x, y)
-cheapr::overview(x %% 10L, digits = 3)[["numeric"]]
-cheapr::overview(y %% 10L, digits = 3)[["numeric"]]
-cheapr::overview(z %% 10L, digits = 3)[["numeric"]]
-collapse::descr(x %% 10L) |> as.data.frame()
+brio::write_lines(
+  as.character(
+    npi(
+      seq.int(
+        GROUP[31],
+        GROUP[34]
+      ),
+      na.rm = TRUE
+    )
+  ),
+  fs::path(
+    here::here(),
+    "valid_npi",
+    ext = "txt"
+  )
+)
+
 # Lower Bound = 1000000004
 # Upper Bound = 1999999992
 # Possible NPIs: 999,999,988

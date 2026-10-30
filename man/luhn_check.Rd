@@ -25,6 +25,7 @@ Luhn Check
 }
 \examples{
 x <- generate(valid = TRUE)
+x \%\% 10L
 check_digit(x)
 luhn_check(x)
 }
