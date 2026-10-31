@@ -1,34 +1,29 @@
-LOWER = 1000000000L
-UPPER = 2000000000L
-GROUP = cheapr::seq_(LOWER, UPPER, LOWER %/% 1000L)
+GROUP = cheapr::seq_(1000000000L, 2000000000L, 1000000000L %/% 1000L)
 INDEX = c(cheapr::seq_(34L, 971, 3L), 971L)
 options(rdz.compress = 9L, rdz.threads = 4L)
 
-create_npi_seq <- function(i) {
-  seq.int(GROUP[i], GROUP[i + 3L]) |>
-    npi(na.rm = TRUE) |>
-    vctrs::vec_data()
+npi_seq <- function(i, g) {
+  x <- cheapr::seq_(g[i], g[i + 3L])
+  vctrs::vec_data(npi(x, na.rm = TRUE))
 }
 
-file <- fs::path_wd(
-  "data-raw",
-  "files",
-  "valid_03",
-  ext = "rdz"
-)
+map_seq <- function(idx, index, grp, old) {
+  new <- purrr::map(index[idx], \(x) npi_seq(i = x, g = grp), .progress = TRUE)
+  new <- purrr::list_c(new)
+  old <- glue::glue("data-raw/files/valid_{old}")
+  old <- fs::path_wd(old, ext = "rdz")
 
-new <- purrr::map(
-  INDEX[121:130],
-  create_npi_seq,
-  .progress = TRUE
-) |>
-  purrr::list_c() |>
-  collapse::funique()
+  if (!fs::file_exists(old)) {
+    fs::file_create(old)
+  } else {
+    new <- list(rdz::read_rdz(old), new)
+    new <- cheapr::unique_(cheapr::c_(.args = new))
+  }
 
-new <- vctrs::vec_unique(vctrs::vec_c(v, new))
+  rdz::write_rdz(new, old)
+}
 
-rdz::write_rdz(new, file)
-v <- rdz::read_rdz(file)
-
-rdz::rdz_info(file)
-rdz::rdz_schema(file)
+new <- map_seq(201:210, INDEX, GROUP, "05")
+rdz::read_rdz(new)
+rdz::rdz_info(new)
+rdz::rdz_schema(new)
