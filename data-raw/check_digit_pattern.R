@@ -3,59 +3,35 @@ library(cheapr)
 library(npis)
 library(ggplot2)
 
+x <- open_rdz(1)
+range(x)
+x %% 2L
+diff(x)
+
+d <- last_digit(x)
+cheapr::counts(d)
+
+x <- tibble::tibble(
+  npi = x,
+  diff = c(NA_integer_, diff(npi)),
+  check = last_digit(x),
+  dcheck = c(NA_integer_, diff(check))
+)
+
 # Lower Bound = 1000000004
 # Upper Bound = 1999999992
 # Possible NPIs: 999,999,988
 
-LOWER = 1000000000L
-UPPER = 2000000000L
-GROUP = cheapr::seq_(
-  from = LOWER,
-  to = UPPER,
-  by = LOWER %/% 1000L
-)
-diff(GROUP)
-# x <- npi(seq.int(GROUP[10], GROUP[13]), na.rm = TRUE)
-brio::write_lines(
-  as.character(
-    npi(
-      seq.int(
-        GROUP[31],
-        GROUP[34]
-      ),
-      na.rm = TRUE
-    )
-  ),
-  fs::path(
-    here::here(),
-    "valid_npi",
-    ext = "txt"
-  )
-)
-
-seg <- cheapr::seq_(1e9L, 1e9L * 2L, by = 1e5L)
-segs <- cheapr::sequence_(1e5L, seg[1:5], as_list = TRUE)
-x <- which_valid(.subset2(segs, 1L))
-
-open_rdzs <- function(files) {
-  x <- glue::glue("data-raw/files/valid_{old}")
-  x <- fs::path_wd(x, ext = "rdz")
-  x <- purrr::map(x, rdz::read_rdz, .progress = TRUE)
-  purrr::list_c(x)
-}
-
-six = open_rdz(6)
-spec = nanoarrow::nanoarrow_extension_spec("arrow.npi", "arrow_npi_spec")
-arrow_str <- nanoarrow::as_nanoarrow_array(
-  six,
-  schema = nanoarrow::na_vctrs(new_npi())
-)
-nanoarrow::infer_nanoarrow_ptype_extension(
-  nanoarrow::nanoarrow_extension_spec("arrow.npi", "arrow_npi_spec"),
-  x = arrow_str
-)
-file <- fs::path_abs(glue::glue("data-raw/files/valid.arrow"))
-nanoarrow::write_nanoarrow(vctrs::vec_data(six), file)
+# LOWER = 1000000000L
+# UPPER = 2000000000L
+# GROUP = cheapr::seq_(
+#   from = LOWER,
+#   to = UPPER,
+#   by = LOWER %/% 1000L
+# )
+# seg <- cheapr::seq_(1e9L, 1e9L * 2L, by = 1e5L)
+# segs <- cheapr::sequence_(1e5L, seg[1:5], as_list = TRUE)
+# x <- which_valid(.subset2(segs, 1L))
 
 # Points where the check digit == 4
 x <- tibble::tibble(
@@ -76,12 +52,6 @@ vctrs::vec_unrep(x2$group) |>
 x <- tibble::tibble(
   x = as.integer(substr(as.character(x), 2L, 10L)),
 )
-
-x$d <- c(NA_integer_, diff(x$x))
-
-unique(x$d)
-
-x |> print(n = 100)
 
 ggplot(x[1:1000, ], aes(x, d)) +
   geom_point(
