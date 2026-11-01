@@ -1,10 +1,10 @@
 GROUP = cheapr::seq_(1000000000L, 2000000000L, 1000000000L %/% 1000L)
 INDEX = c(cheapr::seq_(34L, 971, 3L), 971L)
 options(rdz.compress = 9L, rdz.threads = 4L)
-
+i = 286
 npi_seq <- function(i, g) {
   x <- cheapr::seq_(g[i], g[i + 3L])
-  vctrs::vec_data(npi(x, na.rm = TRUE))
+  vctrs::vec_data(npis::npi(x, na.rm = TRUE))
 }
 
 map_seq <- function(idx, index, grp, old) {
@@ -23,7 +23,17 @@ map_seq <- function(idx, index, grp, old) {
   rdz::write_rdz(new, old)
 }
 
-new <- map_seq(201:210, INDEX, GROUP, "05")
+new <- map_seq(286:295, INDEX, GROUP, "06")
 rdz::read_rdz(new)
 rdz::rdz_info(new)
 rdz::rdz_schema(new)
+
+
+file <- fs::path_abs(glue::glue("data-raw/files/valid_0{1:5}.rdz"))
+purrr::map(file, rdz::rdz_hash)
+seri <- rdz::rdz_serialize(test)
+rdz::rdz_unserialize(seri)
+file <- fs::path_abs(glue::glue("data-raw/files/valid_06.rdz"))
+rdz::read_rdz(file)
+
+rdz::rdz_save()

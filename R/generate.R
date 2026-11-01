@@ -8,6 +8,14 @@ sample_valid <- function(n) {
   cheapr::sample_(npis::examples, size = n, replace = TRUE)
 }
 
+#' @noRd
+open_rdz <- function(x) {
+  x <- cheapr::if_else_(x >= 10L, x, cheapr::paste_("0", x))
+  x <- cheapr::paste_("valid_", x, ".rdz")
+  x <- fs::path_package("npis", "data-raw/files", x)
+  npi(rdz::read_rdz(x))
+}
+
 #' Generate random NPIs
 #'
 #' Creates an integer vector of random NPIs.

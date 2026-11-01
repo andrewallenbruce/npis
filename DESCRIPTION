@@ -23,6 +23,8 @@ Imports:
     stats,
     vctrs (>= 0.7.3)
 Suggests: 
+    rdz (>= 0.1.0),
+    fs,
     testthat (>= 3.3.2),
     tibble (>= 3.3.1)
 Config/Needs/website: tibble

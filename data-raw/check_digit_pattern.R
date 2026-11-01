@@ -3,6 +3,10 @@ library(cheapr)
 library(npis)
 library(ggplot2)
 
+# Lower Bound = 1000000004
+# Upper Bound = 1999999992
+# Possible NPIs: 999,999,988
+
 LOWER = 1000000000L
 UPPER = 2000000000L
 GROUP = cheapr::seq_(
@@ -12,8 +16,6 @@ GROUP = cheapr::seq_(
 )
 diff(GROUP)
 # x <- npi(seq.int(GROUP[10], GROUP[13]), na.rm = TRUE)
-GROUP[31:length(GROUP)] |> length() # 971 left
-
 brio::write_lines(
   as.character(
     npi(
@@ -31,14 +33,29 @@ brio::write_lines(
   )
 )
 
-# Lower Bound = 1000000004
-# Upper Bound = 1999999992
-# Possible NPIs: 999,999,988
-
-# First valid NPI = 1000000004
 seg <- cheapr::seq_(1e9L, 1e9L * 2L, by = 1e5L)
 segs <- cheapr::sequence_(1e5L, seg[1:5], as_list = TRUE)
 x <- which_valid(.subset2(segs, 1L))
+
+open_rdzs <- function(files) {
+  x <- glue::glue("data-raw/files/valid_{old}")
+  x <- fs::path_wd(x, ext = "rdz")
+  x <- purrr::map(x, rdz::read_rdz, .progress = TRUE)
+  purrr::list_c(x)
+}
+
+six = open_rdz(6)
+spec = nanoarrow::nanoarrow_extension_spec("arrow.npi", "arrow_npi_spec")
+arrow_str <- nanoarrow::as_nanoarrow_array(
+  six,
+  schema = nanoarrow::na_vctrs(new_npi())
+)
+nanoarrow::infer_nanoarrow_ptype_extension(
+  nanoarrow::nanoarrow_extension_spec("arrow.npi", "arrow_npi_spec"),
+  x = arrow_str
+)
+file <- fs::path_abs(glue::glue("data-raw/files/valid.arrow"))
+nanoarrow::write_nanoarrow(vctrs::vec_data(six), file)
 
 # Points where the check digit == 4
 x <- tibble::tibble(
