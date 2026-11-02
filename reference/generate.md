@@ -5,7 +5,7 @@ Creates an integer vector of random NPIs.
 ## Usage
 
 ``` r
-generate(n = 10L, prop = 0, syntactic = TRUE, valid = FALSE)
+generate(n = 10L, prop_na = 0, syntactic = TRUE, valid = FALSE)
 ```
 
 ## Arguments
@@ -14,7 +14,7 @@ generate(n = 10L, prop = 0, syntactic = TRUE, valid = FALSE)
 
   `<integer>`, default is `10`; number of NPIs to generate
 
-- prop:
+- prop_na:
 
   `<double>`, between 0 and 1, default is `0.1`; proportion of NAs to
   insert
@@ -37,7 +37,7 @@ A vector of random NPIs
 generate()
 #>  [1] 1645358447 1164415312 1856458594 1103750512 1081470292 1169253906
 #>  [7] 1552817006 1589156954 1620405001 1460366717
-generate(n = 100, prop = 0.2, syntactic = FALSE)
+generate(n = 100, prop_na = 0.2, syntactic = FALSE)
 #>   [1] 1828584216 1331812209         NA         NA 1923518421 1493273806
 #>   [7]         NA 1282064835  176272771  119049188 1630889351 1919914231
 #>  [13] 1445207757 1217694794 1230816297 1200899419 1713463332 1454238456

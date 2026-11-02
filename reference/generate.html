@@ -45,7 +45,7 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">generate</span><span class="op">(</span>n <span class="op">=</span> <span class="fl">10L</span>, prop <span class="op">=</span> <span class="fl">0</span>, syntactic <span class="op">=</span> <span class="cn">TRUE</span>, valid <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">generate</span><span class="op">(</span>n <span class="op">=</span> <span class="fl">10L</span>, prop_na <span class="op">=</span> <span class="fl">0</span>, syntactic <span class="op">=</span> <span class="cn">TRUE</span>, valid <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -56,7 +56,7 @@
 <dd><p><code>&lt;integer&gt;</code>, default is <code>10</code>; number of NPIs to generate</p></dd>
 
 
-<dt id="arg-prop">prop<a class="anchor" aria-label="anchor" href="#arg-prop"></a></dt>
+<dt id="arg-prop-na">prop_na<a class="anchor" aria-label="anchor" href="#arg-prop-na"></a></dt>
 <dd><p><code>&lt;double&gt;</code>, between 0 and 1, default is <code>0.1</code>; proportion of NAs to insert</p></dd>
 
 
@@ -78,7 +78,7 @@
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">generate</span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [1] 1645358447 1164415312 1856458594 1103750512 1081470292 1169253906</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [7] 1552817006 1589156954 1620405001 1460366717</span>
-<span class="r-in"><span><span class="fu">generate</span><span class="op">(</span>n <span class="op">=</span> <span class="fl">100</span>, prop <span class="op">=</span> <span class="fl">0.2</span>, syntactic <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">generate</span><span class="op">(</span>n <span class="op">=</span> <span class="fl">100</span>, prop_na <span class="op">=</span> <span class="fl">0.2</span>, syntactic <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 1828584216 1331812209         NA         NA 1923518421 1493273806</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   [7]         NA 1282064835  176272771  119049188 1630889351 1919914231</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [13] 1445207757 1217694794 1230816297 1200899419 1713463332 1454238456</span>
