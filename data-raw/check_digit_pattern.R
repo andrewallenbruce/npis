@@ -3,7 +3,6 @@ library(cheapr)
 library(npis)
 library(ggplot2)
 
-x <- open_rdz(1)
 range(x)
 x %% 2L
 diff(x)
@@ -11,12 +10,19 @@ diff(x)
 d <- last_digit(x)
 cheapr::counts(d)
 
+x <- open_rdz(1)
 x <- tibble::tibble(
   npi = x,
   diff = c(NA_integer_, diff(npi)),
   check = last_digit(x),
   dcheck = c(NA_integer_, diff(check))
 )
+
+print(x, n = 200)
+vctrs::vec_unrep(collapse::na_rm(x$dcheck)) |>
+  tibble::tibble()
+vctrs::vec_unrep(x[, c(2, 4)]) |>
+  tibble::tibble()
 
 # Lower Bound = 1000000004
 # Upper Bound = 1999999992

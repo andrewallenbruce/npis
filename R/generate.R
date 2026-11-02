@@ -13,7 +13,8 @@ open_rdz <- function(x) {
   x <- cheapr::if_else_(x >= 10L, x, cheapr::paste_("0", x))
   x <- cheapr::paste_("valid_", x, ".rdz")
   x <- fs::path_package("npis", "data-raw/files", x)
-  npi(rdz::read_rdz(x))
+  # npi(rdz::read_rdz(x))
+  rdz::read_rdz(x)
 }
 
 #' Generate random NPIs
@@ -21,16 +22,16 @@ open_rdz <- function(x) {
 #' Creates an integer vector of random NPIs.
 #'
 #' @param n `<integer>`, default is `10`; number of NPIs to generate
-#' @param prop `<double>`, between 0 and 1, default is `0.1`; proportion of NAs to insert
+#' @param prop_na `<double>`, between 0 and 1, default is `0.1`; proportion of NAs to insert
 #' @param syntactic `<boolean>`, default is `TRUE`; syntactically valid output
 #' @param valid `<boolean>`, default is `FALSE`; technically valid output
 #' @returns A vector of random NPIs
 #' @examples
 #' generate()
-#' generate(n = 100, prop = 0.2, syntactic = FALSE)
+#' generate(n = 100, prop_na = 0.2, syntactic = FALSE)
 #' generate(n = 100, valid = TRUE)
 #' @export
-generate <- function(n = 10L, prop = 0, syntactic = TRUE, valid = FALSE) {
+generate <- function(n = 10L, prop_na = 0, syntactic = TRUE, valid = FALSE) {
   check_number_whole(n, min = 1)
   check_bool(valid)
   x <- if (n >= 100L) n %/% 10L else 1L
@@ -39,13 +40,13 @@ generate <- function(n = 10L, prop = 0, syntactic = TRUE, valid = FALSE) {
     return(sample_valid(n))
   }
 
-  check_number_decimal(prop, min = 0, max = 1)
+  check_number_decimal(prop_na, min = 0, max = 1)
   check_bool(syntactic)
   n <- replicate(n, sample_payload())
   n <- as.integer(paste0(1L, n))
 
-  if (prop > 0L) {
-    n <- cheapr::na_insert(n, prop = prop)
+  if (prop_na > 0L) {
+    n <- cheapr::na_insert(n, prop = prop_na)
   }
 
   if (syntactic) {

@@ -4,12 +4,12 @@
 \alias{generate}
 \title{Generate random NPIs}
 \usage{
-generate(n = 10L, prop = 0, syntactic = TRUE, valid = FALSE)
+generate(n = 10L, prop_na = 0, syntactic = TRUE, valid = FALSE)
 }
 \arguments{
 \item{n}{\verb{<integer>}, default is \code{10}; number of NPIs to generate}
 
-\item{prop}{\verb{<double>}, between 0 and 1, default is \code{0.1}; proportion of NAs to insert}
+\item{prop_na}{\verb{<double>}, between 0 and 1, default is \code{0.1}; proportion of NAs to insert}
 
 \item{syntactic}{\verb{<boolean>}, default is \code{TRUE}; syntactically valid output}
 
@@ -23,6 +23,6 @@ Creates an integer vector of random NPIs.
 }
 \examples{
 generate()
-generate(n = 100, prop = 0.2, syntactic = FALSE)
+generate(n = 100, prop_na = 0.2, syntactic = FALSE)
 generate(n = 100, valid = TRUE)
 }

@@ -9,9 +9,7 @@ format.npi <- function(x, ...) {
   if (length(x) == 0L) {
     return(integer())
   }
-  out <- formatC(vctrs::vec_data(x), format = "d")
-  out[collapse::whichNA(x)] <- NA
-  out
+  formatC(vctrs::vec_data(x), format = "d")
 }
 
 #' @export
