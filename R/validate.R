@@ -61,6 +61,21 @@ explode <- function(x) {
 }
 
 #' @noRd
+explode2 <- function(x) {
+  as.integer(
+    unlist_(
+      collapse::t_list(
+        strsplit(
+          as.character(x),
+          split = "",
+          fixed = TRUE
+        )
+      )
+    )
+  )
+}
+
+#' @noRd
 minus_nine <- function(x) {
   cheapr::if_else_(x > 9L, x - 9L, x)
 }
@@ -84,6 +99,29 @@ check_digit <- function(x, call = rlang::current_env()) {
     ncol = 9L,
     byrow = TRUE
   )
+
+  x[, mINDEX] <- minus_nine(x[, mINDEX] * 2L)
+  x <- matrixStats::rowSums2(x) + 24L
+  as.integer(cheapr::ceiling_(x / 10L) * 10L - x)
+}
+
+#' @noRd
+check_digit2 <- function(x, call = rlang::current_env()) {
+  if (!all_in_range(x)) {
+    cli::cli_abort(
+      "All input must be 10 digits",
+      call = call
+    )
+  }
+
+  triplet_matrix <- function(x) {
+    n <- vctrs::vec_size(x)
+    list(
+      i = vctrs::vec_rep(seq(n), n),
+      j = vctrs::vec_rep_each(1:n, 9L),
+      v = explode2(x %/% 10L)
+    )
+  }
 
   x[, mINDEX] <- minus_nine(x[, mINDEX] * 2L)
   x <- matrixStats::rowSums2(x) + 24L
