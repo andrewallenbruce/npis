@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# npis 0.0.2.9010 (2026-11-04)
+
+- Same as previous version.
+
+
 # npis 0.0.2.9009 (2026-10-30)
 
 * switched to `rdz` package, much smaller storage footprint
