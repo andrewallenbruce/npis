@@ -13,7 +13,6 @@ open_rdz <- function(x) {
   x <- cheapr::if_else_(x >= 10L, x, cheapr::paste_("0", x))
   x <- cheapr::paste_("valid_", x, ".rdz")
   x <- fs::path_package("npis", "data-raw/files", x)
-  # npi(rdz::read_rdz(x))
   rdz::read_rdz(x)
 }
 
