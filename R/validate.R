@@ -101,6 +101,7 @@ check_digit <- function(x, call = rlang::current_env()) {
   )
 
   x[, mINDEX] <- minus_nine(x[, mINDEX] * 2L)
+  # x <- Rfast::rowsums(x) + 24L
   x <- matrixStats::rowSums2(x) + 24L
   as.integer(cheapr::ceiling_(x / 10L) * 10L - x)
 }
