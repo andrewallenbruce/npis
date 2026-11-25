@@ -63,6 +63,6 @@ tibble::tibble(npi = x)
 #> 10 1061606632
 #> # ℹ 98 more rows
 summary(x)
-#>      Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
-#> 1.002e+09 1.259e+09 1.481e+09 1.474e+09 1.711e+09 1.985e+09 
+#>       Min.    1st Qu.     Median       Mean    3rd Qu.       Max. 
+#> 1002409476 1259156126 1481450979 1473755888 1710890998 1985342223 
 ```

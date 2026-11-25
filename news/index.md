@@ -1,5 +1,10 @@
 # Changelog
 
+## npis 0.0.2.9011 (2026-11-25)
+
+- removed scientific formatting
+- remove rdz as dependency
+
 ## npis 0.0.2.9010 (2026-11-04)
 
 - Same as previous version.
