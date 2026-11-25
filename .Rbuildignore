@@ -12,3 +12,4 @@
 ^[.]?air[.]toml$
 ^\.vscode$
 ^data-raw$
+^bench$

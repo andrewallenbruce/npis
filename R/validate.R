@@ -116,15 +116,16 @@ check_digit2 <- function(x, call = rlang::current_env()) {
   }
 
   triplet_matrix <- function(x) {
+    x <- generate()
     n <- vctrs::vec_size(x)
-    list(
-      i = vctrs::vec_rep(seq(n), n),
-      j = vctrs::vec_rep_each(1:n, 9L),
-      v = explode2(x %/% 10L)
+    v <- list(
+      x = explode(x %/% 10L),
+      i = vctrs::vec_rep(seq(9L), n),
+      j = vctrs::vec_rep_each(seq(n), 9L)
     )
+    i <- v$i %% 2L == 1L
+    v$v[i] <- minus_nine(v$v[i] * 2L)
+    v$x <- collapse::fsum(vctrs::vec_split(v$v, v$j)$val) + 24L
+    as.integer(cheapr::ceiling_(v$x / 10L) * 10L - v$x)
   }
-
-  x[, mINDEX] <- minus_nine(x[, mINDEX] * 2L)
-  x <- matrixStats::rowSums2(x) + 24L
-  as.integer(cheapr::ceiling_(x / 10L) * 10L - x)
 }

@@ -81,5 +81,5 @@ quantile.npi <- function(x, ...) {
 #' @export
 #' @method summary npi
 summary.npi <- function(object, ...) {
-  summary(vctrs::vec_data(object), ...)
+  unclass(summary(vctrs::vec_data(object), ...))
 }

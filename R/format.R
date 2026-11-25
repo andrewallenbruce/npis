@@ -9,7 +9,8 @@ format.npi <- function(x, ...) {
   if (length(x) == 0L) {
     return(integer())
   }
-  formatC(vctrs::vec_data(x), format = "d")
+  # formatC(vctrs::vec_data(x), format = "d")
+  format(vctrs::vec_data(x), scientific = FALSE)
 }
 
 #' @export

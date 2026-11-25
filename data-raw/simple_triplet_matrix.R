@@ -1,5 +1,5 @@
 library(slam)
-x <- matrix(c(1, 0, 0, 2, 1, NA), nrow = 3)
+x <- matrix(rep.int(1:9, 3), nrow = 9)
 x
 s <- slam::as.simple_triplet_matrix(x)
 unclass(s)
@@ -35,8 +35,8 @@ x
 x <- open_rdz(1)
 
 
-x <- explode(x %/% 10L)
-vctrs::vec_split(e, vctrs::vec_rep_each(1:10, 9L))
+x <- explode(generate() %/% 10L)
+vctrs::vec_split(x, vctrs::vec_rep_each(1:10, 9L))
 
 slam::simple_triplet_matrix(
   i = vctrs::vec_rep(seq(vctrs::vec_size(x)), vctrs::vec_size(x)),
